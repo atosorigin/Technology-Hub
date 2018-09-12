@@ -1,0 +1,81 @@
+/**
+ * 
+ */
+package net.atos.wl.odc.web;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * Entry point for the Worldline ODC Technology Hub Application.
+ * 
+ * <p>
+ * The @SpringBootApplication is a convenience annotation that adds all of the
+ * following:
+ * <ul>
+ * <li>@Configuration tags the class as a source of bean definitions for the
+ * application context.</li>
+ * <li>@EnableAutoConfiguration tells Spring Boot to start adding beans based on
+ * classpath settings, other beans, and various property settings.</li>
+ * <li>Normally you would add @EnableWebMvc for a Spring MVC app, but Spring
+ * Boot adds it automatically when it sees spring-webmvc on the classpath. This
+ * flags the application as a web application and activates key behaviors such
+ * as setting up a DispatcherServlet.</li>
+ * <li>@ComponentScan tells Spring to look for other components, configurations,
+ * and services in the package, allowing it to find the controllers.</li>
+ * </ul>
+ * </p>
+ * 
+ * @author a120065
+ */
+@SpringBootApplication
+@EnableSwagger2
+public class WorldlineODCTechHubApplication {
+
+    /**
+     * The main method uses Spring Boots SpringApplication.run method to launch
+     * an application.
+     * 
+     * @param args
+     *            String[]
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(WorldlineODCTechHubApplication.class, args);
+    }
+
+    /**
+     * Swagger configuration to used while generating Swagger API documentation.
+     * 
+     * @return <code>springfox.documentation.spring.web.plugins.Docket</code>.
+     */
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
+                        .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.web.controller"))
+                        .paths(PathSelectors.any()).build();
+    }
+
+    /**
+     * Get the high level API information to be displayed in Swagger API
+     * documentation for the service.
+     * 
+     * @return <code>springfox.documentation.service.ApiInfo</code>.
+     */
+    private ApiInfo getApiInfo() {
+        final Contact contact = new Contact("Worldline ODC Team", "https://worldline.com/", "rupesh.deshmukh@atos.net");
+        return new ApiInfoBuilder().title("Worldline ODC Technology Hub API")
+                        .description("Worldline ODC Technology Hub API").version("1.0.0").license("Apache 2.0")
+                        .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact).build();
+    }
+
+}
