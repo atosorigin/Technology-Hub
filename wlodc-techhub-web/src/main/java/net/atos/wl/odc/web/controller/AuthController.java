@@ -34,13 +34,14 @@ public class AuthController {
     private LdapService ldapService;
 
     @RequestMapping(value = "/api/auth", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Display greeting message to non-admin user")
+    @ApiOperation(value = "Authenticate user and return user detail if user is valid.")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "The resource not found")})
     public ResponseEntity<UserDto> authenticateUser(@RequestHeader(value = "Authorization") String authString) {
         try {
-            if (ldapService.doValidate(authString)) {
-                return new ResponseEntity<>(new UserDto("TestUser"), HttpStatus.OK);
+            final UserDto user = ldapService.doValidate(authString);
+            if (user != null) {
+                return new ResponseEntity<>(user, HttpStatus.OK);
             }
         } catch (Exception e) {
             log.error("", e);
