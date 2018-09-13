@@ -34,7 +34,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
-                        .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.web.controller"))
+                        .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.techhub.web.controller"))
                         .paths(PathSelectors.any()).build();
     }
 
