@@ -1,11 +1,12 @@
-/**
- * 
+/*
+ * Copyright (C) 2018 Worldline ODC.
  */
-package net.atos.wl.odc.web;
+package net.atos.wl.odc.techhub.web.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -17,41 +18,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Entry point for the Worldline ODC Technology Hub Application.
- * 
- * <p>
- * The @SpringBootApplication is a convenience annotation that adds all of the
- * following:
- * <ul>
- * <li>@Configuration tags the class as a source of bean definitions for the
- * application context.</li>
- * <li>@EnableAutoConfiguration tells Spring Boot to start adding beans based on
- * classpath settings, other beans, and various property settings.</li>
- * <li>Normally you would add @EnableWebMvc for a Spring MVC app, but Spring
- * Boot adds it automatically when it sees spring-webmvc on the classpath. This
- * flags the application as a web application and activates key behaviors such
- * as setting up a DispatcherServlet.</li>
- * <li>@ComponentScan tells Spring to look for other components, configurations,
- * and services in the package, allowing it to find the controllers.</li>
- * </ul>
- * </p>
+ * Swagger API Documentation configuration.
  * 
  * @author a120065
  */
-@SpringBootApplication
+@Configuration
 @EnableSwagger2
-public class WorldlineODCTechHubApplication {
-
-    /**
-     * The main method uses Spring Boots SpringApplication.run method to launch
-     * an application.
-     * 
-     * @param args
-     *            String[]
-     */
-    public static void main(final String[] args) {
-        SpringApplication.run(WorldlineODCTechHubApplication.class, args);
-    }
+public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     /**
      * Swagger configuration to used while generating Swagger API documentation.
@@ -66,6 +39,17 @@ public class WorldlineODCTechHubApplication {
     }
 
     /**
+     * Method add swagger resource handlers.
+     * 
+     * @param <code>org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry</code>.
+     */
+    @Override
+    protected void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+    /**
      * Get the high level API information to be displayed in Swagger API
      * documentation for the service.
      * 
@@ -77,5 +61,4 @@ public class WorldlineODCTechHubApplication {
                         .description("Worldline ODC Technology Hub API").version("1.0.0").license("Apache 2.0")
                         .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact).build();
     }
-
 }

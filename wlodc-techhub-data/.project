@@ -2,7 +2,9 @@
 <projectDescription>
   <name>wlodc-techhub-data</name>
   <comment>Worldline ODC Technology Hub Data Module. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects/>
+  <projects>
+    <project>wlodc-techhub-common</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

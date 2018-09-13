@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2016 Worldline UK&I.
+ * Copyright (C) 2018 Worldline ODC.
  */
-package net.atos.wl.odc.web.controller;
+package net.atos.wl.odc.techhub.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +18,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import net.atos.wl.odc.web.security.LdapService;
-import net.atos.wl.odc.web.security.UserDto;
+import net.atos.wl.odc.techhub.business.service.LdapService;
+import net.atos.wl.odc.techhub.common.dto.UserDto;
 
 /**
+ * Spring REST Controller for exposing user authentication APIs.
+ * 
  * @author a120065
  */
 @RestController
@@ -39,7 +41,7 @@ public class AuthController {
             @ApiResponse(code = 404, message = "The resource not found")})
     public ResponseEntity<UserDto> authenticateUser(@RequestHeader(value = "Authorization") String authString) {
         try {
-            final UserDto user = ldapService.doValidate(authString);
+            final UserDto user = this.ldapService.authenticateUser(authString);
             if (user != null) {
                 return new ResponseEntity<>(user, HttpStatus.OK);
             }
