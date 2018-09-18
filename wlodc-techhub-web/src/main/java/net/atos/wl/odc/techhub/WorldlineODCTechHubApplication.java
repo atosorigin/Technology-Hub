@@ -5,6 +5,7 @@ package net.atos.wl.odc.techhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * Entry point for the Worldline ODC Technology Hub Application.
@@ -29,6 +30,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author a120065
  */
 @SpringBootApplication
+@ImportResource({"classpath*:wlodc-techhub-web.xml"})
 public class WorldlineODCTechHubApplication {
 
     /**

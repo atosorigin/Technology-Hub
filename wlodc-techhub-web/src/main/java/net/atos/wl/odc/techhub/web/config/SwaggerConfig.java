@@ -6,6 +6,7 @@ package net.atos.wl.odc.techhub.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -22,8 +23,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 
  * @author a120065
  */
-@Configuration
 @EnableSwagger2
+@Configuration
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     /**
@@ -36,6 +37,21 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
                         .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.techhub.web.controller"))
                         .paths(PathSelectors.any()).build();
+    }
+
+    /**
+     * Method to add view controller registry for swagger documentation.
+     * 
+     * @param <code>org.springframework.web.servlet.config.annotation.ViewControllerRegistry</code>.
+     */
+    @Override
+    public void addViewControllers(final ViewControllerRegistry registry) {
+        registry.addRedirectViewController("/v2/api-docs", "/v2/api-docs");
+        registry.addRedirectViewController("/swagger-resources/configuration/ui",
+                        "/swagger-resources/configuration/ui");
+        registry.addRedirectViewController("/swagger-resources/configuration/security",
+                        "/swagger-resources/configuration/security");
+        registry.addRedirectViewController("/swagger-resources", "/swagger-resources");
     }
 
     /**
