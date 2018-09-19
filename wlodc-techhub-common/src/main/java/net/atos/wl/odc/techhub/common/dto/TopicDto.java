@@ -20,6 +20,8 @@ public class TopicDto implements Serializable {
      */
     private static final long serialVersionUID = -1015245138266683167L;
 
+    private Integer id;
+
     private String name;
 
     private String description;
@@ -37,6 +39,25 @@ public class TopicDto implements Serializable {
     private List<QuestionDto> questions;
 
     private List<VoteDto> votes;
+
+    /**
+     * Getter for id.
+     *
+     * @return the id
+     */
+    public final Integer getId() {
+        return id;
+    }
+
+    /**
+     * Setter for id.
+     *
+     * @param id
+     *            the id to set
+     */
+    public final void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * Getter for name.

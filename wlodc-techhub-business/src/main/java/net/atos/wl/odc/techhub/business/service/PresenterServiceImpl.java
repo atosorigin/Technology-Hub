@@ -50,13 +50,13 @@ public class PresenterServiceImpl implements PresenterService {
 
         // First map all information passed from PresenterDto to Presenter
         // entity.
-        final Presenter presenter = this.objectMapper.mapPresenterDtoToEntity(presenterDto);
+        final Presenter presenter = this.getObjectMapper().map(presenterDto, Presenter.class);
 
         // Invoke DAO to persist the presenter data.
         this.getPresenterDAO().create(presenter);
 
-        // Finally reverse map entity information to the EmployeeDto.
-        return this.objectMapper.mapPresenterEntityToDto(presenter);
+        // Finally reverse map entity information to the PresenterDto.
+        return this.getObjectMapper().map(presenter, PresenterDto.class);
     }
 
     /*
@@ -74,7 +74,7 @@ public class PresenterServiceImpl implements PresenterService {
 
         // If presenter exists then map entity information to PresenterDto.
         if (presenter != null) {
-            return this.objectMapper.mapPresenterEntityToDto(presenter);
+            return this.getObjectMapper().map(presenter, PresenterDto.class);
         }
 
         return null;
@@ -94,7 +94,7 @@ public class PresenterServiceImpl implements PresenterService {
         final Presenter presenterFromDb = this.getPresenterDAO().read(presenterDto.getId());
 
         // Map updated information from PresenterDto to presenter entity.
-        this.objectMapper.map(presenterDto, presenterFromDb);
+        this.getObjectMapper().map(presenterDto, presenterFromDb);
 
         // Finally invoke DAO to update details.
         this.getPresenterDAO().update(presenterFromDb);
@@ -126,7 +126,7 @@ public class PresenterServiceImpl implements PresenterService {
 
         // If presenter exists then map entity information to PresenterDto.
         if (presenter != null) {
-            return this.objectMapper.mapPresenterEntityToDto(presenter);
+            return this.getObjectMapper().map(presenter, PresenterDto.class);
         }
 
         return null;
@@ -148,7 +148,7 @@ public class PresenterServiceImpl implements PresenterService {
         if (presenters != null && !presenters.isEmpty()) {
             final List<PresenterDto> presenterDtos = new ArrayList<>();
             for (final Presenter presenter : presenters) {
-                presenterDtos.add(this.objectMapper.mapPresenterEntityToDto(presenter));
+                presenterDtos.add(this.getObjectMapper().map(presenter, PresenterDto.class));
             }
 
             return presenterDtos;

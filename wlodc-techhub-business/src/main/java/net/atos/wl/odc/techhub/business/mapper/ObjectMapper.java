@@ -7,9 +7,6 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import net.atos.wl.odc.techhub.common.dto.PresenterDto;
-import net.atos.wl.odc.techhub.data.entity.Presenter;
-
 /**
  * Dozer object mapper for mapping DTO to entity and vice versa.
  * 
@@ -22,37 +19,28 @@ public class ObjectMapper {
     private DozerBeanMapper dozerBeanMapper;
 
     /**
-     * Method to map PresenterDto to Presenter entity.
+     * Method to create instance of destination class and map the value of
+     * source object to destination.
      * 
-     * @param presenterDto
-     *            <code>net.atos.wl.odc.techhub.common.dto.PresenterDto</code>.
-     * @return <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
+     * @param source
+     *            Object.
+     * @param destinationClass
+     *            Class<T>.
+     * @return destination class instance with populated value.
      */
-    public Presenter mapPresenterDtoToEntity(final PresenterDto presenterDto) {
-        return this.dozerBeanMapper.map(presenterDto, Presenter.class);
+    public <T> T map(final Object source, final Class<T> destinationClass) {
+        return this.dozerBeanMapper.map(source, destinationClass);
     }
 
     /**
-     * Method to map Presenter entity to PresenterDto.
+     * Method to map information from source object to destination object.
      * 
-     * @param presenter
-     *            <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
-     * @return <code>net.atos.wl.odc.techhub.common.dto.PresenterDto</code>.
+     * @param source
+     *            Object.
+     * @param destination
+     *            Object.
      */
-    public PresenterDto mapPresenterEntityToDto(final Presenter presenter) {
-        return this.dozerBeanMapper.map(presenter, PresenterDto.class);
-    }
-
-    /**
-     * Method to map information from PresenterDto to Presenter entity fetched
-     * from DB.
-     * 
-     * @param presenterDto
-     *            <code>net.atos.wl.odc.techhub.common.dto.PresenterDto</code>
-     * @param presenterFromDb
-     *            <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
-     */
-    public void map(final PresenterDto presenterDto, final Presenter presenterFromDb) {
-        this.dozerBeanMapper.map(presenterDto, presenterFromDb);
+    public void map(final Object source, final Object destination) {
+        this.dozerBeanMapper.map(source, destination);
     }
 }
