@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+        http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.AttendanceDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Attendance
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.ChoiceDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Choice
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.EventDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Event
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.FeedbackDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Feedback
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.PresenterDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Presenter
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.QuestionDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Question
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.TopicDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Topic
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.UserDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.User
+		</class-b>
+	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.VoteDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Vote
+		</class-b>
+	</mapping>
+</mappings>

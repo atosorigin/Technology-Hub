@@ -11,4 +11,13 @@
 		to configure as beans. -->
 	<context:component-scan
 		base-package="net.atos.wl.odc.techhub.business.service" />
+
+	<!-- Dozer mapper for mapping objects. -->
+	<bean id="dozerBeanMapper" class="org.dozer.DozerBeanMapper">
+		<property name="mappingFiles">
+			<list>
+				<value>dozer-bean-mappings.xml</value>
+			</list>
+		</property>
+	</bean>
 </beans>
