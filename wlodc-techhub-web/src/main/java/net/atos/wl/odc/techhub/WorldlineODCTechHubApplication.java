@@ -5,7 +5,17 @@ package net.atos.wl.odc.techhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Entry point for the Worldline ODC Technology Hub Application.
@@ -30,6 +40,7 @@ import org.springframework.context.annotation.ImportResource;
  * @author a120065
  */
 @SpringBootApplication
+@EnableSwagger2
 @ImportResource({"classpath*:wlodc-techhub-web.xml"})
 public class WorldlineODCTechHubApplication {
 
@@ -42,5 +53,30 @@ public class WorldlineODCTechHubApplication {
      */
     public static void main(final String[] args) {
         SpringApplication.run(WorldlineODCTechHubApplication.class, args);
+    }
+
+    /**
+     * Swagger configuration to used while generating Swagger API documentation.
+     * 
+     * @return <code>springfox.documentation.spring.web.plugins.Docket</code>.
+     */
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
+                        .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.techhub.web.controller"))
+                        .paths(PathSelectors.any()).build();
+    }
+
+    /**
+     * Get the high level API information to be displayed in Swagger API
+     * documentation for the service.
+     * 
+     * @return <code>springfox.documentation.service.ApiInfo</code>.
+     */
+    private ApiInfo getApiInfo() {
+        final Contact contact = new Contact("Worldline ODC Team", "https://worldline.com/", "rupesh.deshmukh@atos.net");
+        return new ApiInfoBuilder().title("Worldline ODC Technology Hub API")
+                        .description("Worldline ODC Technology Hub API").version("1.0.0").license("Apache 2.0")
+                        .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact).build();
     }
 }

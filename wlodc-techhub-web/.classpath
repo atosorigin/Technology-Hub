@@ -153,9 +153,9 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/springframework/spring-webmvc/5.0.8.RELEASE/spring-webmvc-5.0.8.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger2/2.9.1/springfox-swagger2-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger2/2.9.1/springfox-swagger2-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger2/2.9.2/springfox-swagger2-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger2/2.9.2/springfox-swagger2-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger2/2.9.1/springfox-swagger2-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger2/2.9.2/springfox-swagger2-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/io/swagger/swagger-annotations/1.5.20/swagger-annotations-1.5.20.jar" sourcepath="M2_REPO/io/swagger/swagger-annotations/1.5.20/swagger-annotations-1.5.20-sources.jar">
@@ -168,14 +168,14 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/swagger/swagger-models/1.5.20/swagger-models-1.5.20-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-spi/2.9.2/springfox-spi-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-spi/2.9.2/springfox-spi-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-spi/2.9.2/springfox-spi-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-core/2.9.2/springfox-core-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-core/2.9.2/springfox-core-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-core/2.9.2/springfox-core-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/net/bytebuddy/byte-buddy/1.7.11/byte-buddy-1.7.11.jar" sourcepath="M2_REPO/net/bytebuddy/byte-buddy/1.7.11/byte-buddy-1.7.11-sources.jar">
@@ -198,19 +198,19 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-schema/2.9.1/springfox-schema-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-schema/2.9.1/springfox-schema-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-schema/2.9.2/springfox-schema-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-schema/2.9.2/springfox-schema-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-schema/2.9.1/springfox-schema-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-schema/2.9.2/springfox-schema-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger-common/2.9.1/springfox-swagger-common-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger-common/2.9.1/springfox-swagger-common-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger-common/2.9.2/springfox-swagger-common-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger-common/2.9.2/springfox-swagger-common-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger-common/2.9.1/springfox-swagger-common-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger-common/2.9.2/springfox-swagger-common-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/mapstruct/mapstruct/1.2.0.Final/mapstruct-1.2.0.Final.jar" sourcepath="M2_REPO/org/mapstruct/mapstruct/1.2.0.Final/mapstruct-1.2.0.Final-sources.jar">
@@ -218,9 +218,9 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/mapstruct/mapstruct/1.2.0.Final/mapstruct-1.2.0.Final-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/io/springfox/springfox-swagger-ui/2.9.2/springfox-swagger-ui-2.9.2.jar" sourcepath="M2_REPO/io/springfox/springfox-swagger-ui/2.9.2/springfox-swagger-ui-2.9.2-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger-ui/2.9.2/springfox-swagger-ui-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar" sourcepath="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25-sources.jar">
