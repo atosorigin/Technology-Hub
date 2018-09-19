@@ -5,6 +5,7 @@ package net.atos.wl.odc.techhub.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -25,7 +26,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @EnableSwagger2
 @Configuration
-public class SwaggerConfig extends WebMvcConfigurationSupport {
+public class ApplicationConfig extends WebMvcConfigurationSupport {
 
     /**
      * Swagger configuration to used while generating Swagger API documentation.
@@ -39,10 +40,12 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
                         .paths(PathSelectors.any()).build();
     }
 
-    /**
-     * Method to add view controller registry for swagger documentation.
+    /*
+     * (non-Javadoc)
      * 
-     * @param <code>org.springframework.web.servlet.config.annotation.ViewControllerRegistry</code>.
+     * @see org.springframework.web.servlet.config.annotation.
+     * WebMvcConfigurationSupport#addViewControllers(org.springframework.web.
+     * servlet.config.annotation.ViewControllerRegistry)
      */
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
@@ -54,15 +57,29 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         registry.addRedirectViewController("/swagger-resources", "/swagger-resources");
     }
 
-    /**
-     * Method add swagger resource handlers.
+    /*
+     * (non-Javadoc)
      * 
-     * @param <code>org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry</code>.
+     * @see org.springframework.web.servlet.config.annotation.
+     * WebMvcConfigurationSupport#addResourceHandlers(org.springframework.web.
+     * servlet.config.annotation.ResourceHandlerRegistry)
      */
     @Override
     protected void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.web.servlet.config.annotation.
+     * WebMvcConfigurationSupport#addCorsMappings(org.springframework.web.
+     * servlet.config.annotation.CorsRegistry)
+     */
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
     }
 
     /**
