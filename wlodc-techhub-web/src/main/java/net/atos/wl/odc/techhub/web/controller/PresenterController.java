@@ -29,7 +29,7 @@ import net.atos.wl.odc.techhub.common.dto.PresenterDto;
  * @author a120065
  */
 @RestController
-@Api(value = "/api/presenters", tags = "Presenter API")
+@Api(value = "/api/presenters", tags = "Presenters API")
 public class PresenterController {
 
     private static Logger log = LoggerFactory.getLogger(PresenterController.class);
@@ -42,9 +42,6 @@ public class PresenterController {
      * 
      * @param presenterDto
      *            <code>net.atos.wl.odc.techhub.common.dto.PresenterDto</code>.
-     * @param ucBuilder
-     *            <code>org.springframework.web.util.UriComponentsBuilder</code>
-     *            .
      * @return ResponseEntity with headers and HTTP status.
      */
     @RequestMapping(value = "/api/presenters", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -94,8 +91,6 @@ public class PresenterController {
     /**
      * REST service to get all presenters.
      * 
-     * @param userId
-     *            String of the presenter to be searched.
      * @return ResponseEntity with presenter and HTTP status.
      */
     @RequestMapping(value = "/api/presenters", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
