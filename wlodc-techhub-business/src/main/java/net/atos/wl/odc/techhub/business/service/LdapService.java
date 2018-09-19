@@ -14,6 +14,7 @@ import javax.naming.directory.SearchResult;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.atos.wl.odc.techhub.common.dto.UserDto;
@@ -30,6 +31,9 @@ public class LdapService {
      * Logger instance for logging.
      */
     private static Logger log = LoggerFactory.getLogger(LdapService.class);
+
+    @Autowired
+    private UserService userService;
 
     /**
      * Service to authentic user credentials passes as authorization header and
@@ -64,7 +68,14 @@ public class LdapService {
             context = new InitialDirContext(props);
 
             // If user is valid then get the user details.
-            return this.getUserDetail(context, userId);
+            UserDto userDto = this.getUserDetailFromDb(userId);
+
+            if (userDto != null) {
+                return userDto;
+            } else {
+                userDto = this.getUserDetailFromLdap(context, userId);
+                return this.getUserService().create(userDto);
+            }
         } catch (final Exception e) {
             log.error("", e);
             throw e;
@@ -99,7 +110,18 @@ public class LdapService {
     }
 
     /**
-     * Method to get the user details.
+     * Method to get user details from DB.
+     * 
+     * @param userId
+     *            String.
+     * @return <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
+     */
+    private UserDto getUserDetailFromDb(final String userId) {
+        return this.getUserService().findUserByUserId(userId);
+    }
+
+    /**
+     * Method to get the user details from LDAP.
      * 
      * @param context
      *            <code>javax.naming.directory.InitialDirContext</code>.
@@ -109,7 +131,8 @@ public class LdapService {
      * @throws Exception
      *             exception occurred while getting user details.
      */
-    private UserDto getUserDetail(final InitialDirContext context, final String userId) throws Exception {
+    @SuppressWarnings("rawtypes")
+    private UserDto getUserDetailFromLdap(final InitialDirContext context, final String userId) throws Exception {
         final SearchControls ctrls = new SearchControls();
         ctrls.setReturningAttributes(new String[] {"*", "+"});
         ctrls.setSearchScope(SearchControls.SUBTREE_SCOPE);
@@ -140,5 +163,24 @@ public class LdapService {
             log.error("", e);
             throw e;
         }
+    }
+
+    /**
+     * Getter for userService.
+     *
+     * @return the userService
+     */
+    public final UserService getUserService() {
+        return userService;
+    }
+
+    /**
+     * Setter for userService.
+     *
+     * @param userService
+     *            the userService to set
+     */
+    public final void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }

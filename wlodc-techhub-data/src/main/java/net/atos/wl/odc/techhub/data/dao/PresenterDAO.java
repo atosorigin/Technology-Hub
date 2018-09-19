@@ -17,7 +17,7 @@ public interface PresenterDAO extends GenericDAO<Presenter> {
      * 
      * @param userId
      *            String.
-     * @return <code>net.atos.wl.odc.techhub.common.dto.PresenterDto</code>.
+     * @return <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
      */
     Presenter findPresenterByUserId(final String userId);
 }

@@ -26,30 +26,11 @@ public class AttendanceDto implements Serializable {
     @JsonProperty("id")
     private Integer id;
 
-    @JsonProperty("roomNumber")
-    private RoomNumber roomNumber;
-
     @JsonProperty("userId")
     private String userId;
 
-    /**
-     * Getter for roomNumber.
-     *
-     * @return the roomNumber
-     */
-    public final RoomNumber getRoomNumber() {
-        return roomNumber;
-    }
-
-    /**
-     * Setter for roomNumber.
-     *
-     * @param roomNumber
-     *            the roomNumber to set
-     */
-    public final void setRoomNumber(RoomNumber roomNumber) {
-        this.roomNumber = roomNumber;
-    }
+    @JsonProperty("roomNumber")
+    private RoomNumber roomNumber;
 
     /**
      * Getter for id.
@@ -89,4 +70,22 @@ public class AttendanceDto implements Serializable {
         this.userId = userId;
     }
 
+    /**
+     * Getter for roomNumber.
+     *
+     * @return the roomNumber
+     */
+    public final RoomNumber getRoomNumber() {
+        return roomNumber;
+    }
+
+    /**
+     * Setter for roomNumber.
+     *
+     * @param roomNumber
+     *            the roomNumber to set
+     */
+    public final void setRoomNumber(RoomNumber roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 }

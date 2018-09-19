@@ -3,9 +3,12 @@
  */
 package net.atos.wl.odc.techhub.data.dao;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.data.entity.Presenter;
 
@@ -32,10 +35,15 @@ public class PresenterDAOImpl extends AbstractJpaDAO<Presenter> implements Prese
      * lang.String)
      */
     @Override
+    @SuppressWarnings("unchecked")
     public Presenter findPresenterByUserId(final String userId) {
         final Query query = this.entityManager
                         .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Presenter.fetchPresenterByUserId");
         query.setParameter("userId", userId);
-        return (Presenter) query.getSingleResult();
+        final List<Presenter> presenters = (List<Presenter>) query.getResultList();
+        if (!CollectionUtils.isEmpty(presenters)) {
+            return presenters.get(0);
+        }
+        return null;
     }
 }
