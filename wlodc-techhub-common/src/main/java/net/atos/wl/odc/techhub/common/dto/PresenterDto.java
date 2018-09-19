@@ -6,11 +6,17 @@ package net.atos.wl.odc.techhub.common.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * Data transfer object for presenter details.
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({"userId", "firstName", "lastName", "location", "email", "mobile", "imageUrl"})
 public class PresenterDto implements Serializable {
 
     /**
@@ -20,20 +26,28 @@ public class PresenterDto implements Serializable {
 
     private Integer id;
 
+    @JsonProperty("userId")
     private String userId;
 
+    @JsonProperty("firstName")
     private String firstName;
 
+    @JsonProperty("lastName")
     private String lastName;
 
+    @JsonProperty("location")
     private String location;
 
+    @JsonProperty("email")
     private String email;
 
+    @JsonProperty("mobile")
     private String mobile;
 
+    @JsonProperty("imageUrl")
     private String imageUrl;
 
+    @JsonProperty("topics")
     private List<TopicDto> topics;
 
     /**

@@ -75,8 +75,8 @@ public class WorldlineODCTechHubApplication {
      */
     private ApiInfo getApiInfo() {
         final Contact contact = new Contact("Worldline ODC Team", "https://worldline.com/", "rupesh.deshmukh@atos.net");
-        return new ApiInfoBuilder().title("Worldline ODC Technology Hub API")
-                        .description("Worldline ODC Technology Hub API").version("1.0.0").license("Apache 2.0")
-                        .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact).build();
+        return new ApiInfoBuilder().title("Worldline ODC Technology Hub").description("Worldline ODC Technology Hub")
+                        .version("1.0.0").license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
+                        .contact(contact).build();
     }
 }

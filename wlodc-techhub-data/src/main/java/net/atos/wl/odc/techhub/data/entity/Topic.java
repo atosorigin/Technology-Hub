@@ -6,10 +6,12 @@ package net.atos.wl.odc.techhub.data.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -57,17 +59,17 @@ public class Topic extends PersistableEntity {
     @Column(name = "room_number", nullable = false)
     private RoomNumber roomNumber;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "topic_presenter_table", joinColumns = {@JoinColumn(name = "topic_id")}, inverseJoinColumns = {
             @JoinColumn(name = "presenter_id")})
     private List<Presenter> presenters = new ArrayList<Presenter>();
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "topic_user_table", joinColumns = {@JoinColumn(name = "topic_id")}, inverseJoinColumns = {
             @JoinColumn(name = "user_id")})
     private List<User> users = new ArrayList<User>();
 
-    @OneToMany(mappedBy = "topic")
+    @OneToMany(mappedBy = "topic", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Question> questions = new ArrayList<Question>();
 
     @OneToMany(mappedBy = "topic")

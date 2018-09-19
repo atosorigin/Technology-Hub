@@ -3,6 +3,8 @@
  */
 package net.atos.wl.odc.techhub.web.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.base.Preconditions;
 
+import io.swagger.annotations.Api;
 import net.atos.wl.odc.techhub.business.service.PresenterService;
 import net.atos.wl.odc.techhub.common.dto.PresenterDto;
 
@@ -26,6 +29,7 @@ import net.atos.wl.odc.techhub.common.dto.PresenterDto;
  * @author a120065
  */
 @RestController
+@Api(value = "/api/presenters", tags = "Presenter API")
 public class PresenterController {
 
     private static Logger log = LoggerFactory.getLogger(PresenterController.class);
@@ -48,6 +52,7 @@ public class PresenterController {
         Preconditions.checkNotNull(presenterDto);
         log.info("Adding a new presenter details with user Id", presenterDto.getUserId());
         final PresenterDto persistedPresenterDto = this.presenterService.create(presenterDto);
+        log.info("Presenter detail was added successfully.");
         return new ResponseEntity<>(persistedPresenterDto, HttpStatus.CREATED);
     }
 
@@ -59,13 +64,14 @@ public class PresenterController {
      * @return ResponseEntity with presenter and HTTP status.
      */
     @RequestMapping(value = "/api/presenters/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PresenterDto> getPresenter(@PathVariable("id") final String userId) {
+    public ResponseEntity<PresenterDto> getPresenter(@PathVariable("userId") final String userId) {
         log.info("Getting presenter details with user Id", userId);
         final PresenterDto presenterDto = this.presenterService.findPresenterByUserId(userId);
-
         if (presenterDto == null) {
+            log.info("Presenter not found with user Id", userId);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        log.info("Presenter exists. Returning the detail for the same.");
         return new ResponseEntity<>(presenterDto, HttpStatus.OK);
     }
 
@@ -81,27 +87,22 @@ public class PresenterController {
         Preconditions.checkNotNull(presenterDto);
         log.info("Updating presenter details with user Id", presenterDto.getUserId());
         this.presenterService.update(presenterDto);
+        log.info("Presenter detail was updated successfully.");
         return new ResponseEntity<>(presenterDto, HttpStatus.OK);
     }
 
     /**
-     * REST service to delete presenter by given id.
+     * REST service to get all presenters.
      * 
-     * @param id
-     *            Integer of the presenter to be searched.
+     * @param userId
+     *            String of the presenter to be searched.
      * @return ResponseEntity with presenter and HTTP status.
      */
-    @RequestMapping(value = "/api/presenters/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<PresenterDto> deletePresenter(@PathVariable("id") final Integer id) {
-
-        final PresenterDto presenterDto = this.presenterService.read(id);
-
-        if (presenterDto == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        this.presenterService.delete(id);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @RequestMapping(value = "/api/presenters", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PresenterDto>> getAllPresenters() {
+        log.info("Getting all presenters.");
+        final List<PresenterDto> presenters = this.presenterService.findAllPresenters();
+        log.info("Total number of presenters found", presenters.size());
+        return new ResponseEntity<>(presenters, HttpStatus.OK);
     }
 }

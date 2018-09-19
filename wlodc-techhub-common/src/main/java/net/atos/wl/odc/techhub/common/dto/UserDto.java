@@ -5,11 +5,17 @@ package net.atos.wl.odc.techhub.common.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * Data transfer object for user details.
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({"userId", "firstName", "lastName", "location", "email", "mobile"})
 public class UserDto implements Serializable {
 
     /**
@@ -17,16 +23,22 @@ public class UserDto implements Serializable {
      */
     private static final long serialVersionUID = -604018936275238886L;
 
+    @JsonProperty("userId")
     private String userId;
 
+    @JsonProperty("firstName")
     private String firstName;
 
+    @JsonProperty("lastName")
     private String lastName;
 
+    @JsonProperty("location")
     private String location;
 
+    @JsonProperty("email")
     private String email;
 
+    @JsonProperty("mobile")
     private String mobile;
 
     /**

@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -38,7 +40,7 @@ public class Event extends PersistableEntity {
     @Column(name = "event_date")
     private Date eventDate;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Topic> topics = new ArrayList<Topic>();
 
     /**
