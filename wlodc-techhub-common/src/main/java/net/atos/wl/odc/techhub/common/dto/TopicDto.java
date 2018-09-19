@@ -6,6 +6,9 @@ package net.atos.wl.odc.techhub.common.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
@@ -13,6 +16,7 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TopicDto implements Serializable {
 
     /**
@@ -20,16 +24,22 @@ public class TopicDto implements Serializable {
      */
     private static final long serialVersionUID = -1015245138266683167L;
 
+    @JsonProperty("id")
     private Integer id;
 
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("description")
     private String description;
 
+    @JsonProperty("imageUrl")
     private String imageUrl;
 
+    @JsonProperty("timeSlot")
     private String timeSlot;
 
+    @JsonProperty("roomNumber")
     private RoomNumber roomNumber;
 
     private List<PresenterDto> presenters;

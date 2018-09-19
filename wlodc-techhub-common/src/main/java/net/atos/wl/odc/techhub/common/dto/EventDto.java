@@ -7,11 +7,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Data transfer object for event details.
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EventDto implements Serializable {
 
     /**
@@ -19,13 +23,38 @@ public class EventDto implements Serializable {
      */
     private static final long serialVersionUID = -102053208665368724L;
 
+    @JsonProperty("id")
+    private Integer id;
+
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("description")
     private String description;
 
+    @JsonProperty("eventDate")
     private Date eventDate;
 
     private List<TopicDto> topics;
+
+    /**
+     * Getter for id.
+     *
+     * @return the id
+     */
+    public final Integer getId() {
+        return id;
+    }
+
+    /**
+     * Setter for id.
+     *
+     * @param id
+     *            the id to set
+     */
+    public final void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * Getter for name.

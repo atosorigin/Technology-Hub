@@ -5,11 +5,15 @@ package net.atos.wl.odc.techhub.common.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Data transfer object for feedback details.
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FeedbackDto implements Serializable {
 
     /**
@@ -17,67 +21,91 @@ public class FeedbackDto implements Serializable {
      */
     private static final long serialVersionUID = -21413749808090539L;
 
-    private UserDto user;
+    @JsonProperty("id")
+    private Integer id;
 
-    private QuestionDto question;
+    @JsonProperty("userId")
+    private String userId;
 
-    private ChoiceDto choice;
+    @JsonProperty("questionId")
+    private Integer questionId;
+
+    @JsonProperty("choiceId")
+    private Integer choiceId;
 
     /**
-     * Getter for user.
+     * Getter for id.
      *
-     * @return the user
+     * @return the id
      */
-    public final UserDto getUser() {
-        return user;
+    public final Integer getId() {
+        return id;
     }
 
     /**
-     * Setter for user.
+     * Setter for id.
      *
-     * @param user
-     *            the user to set
+     * @param id
+     *            the id to set
      */
-    public final void setUser(UserDto user) {
-        this.user = user;
+    public final void setId(Integer id) {
+        this.id = id;
     }
 
     /**
-     * Getter for question.
+     * Getter for userId.
      *
-     * @return the question
+     * @return the userId
      */
-    public final QuestionDto getQuestion() {
-        return question;
+    public final String getUserId() {
+        return userId;
     }
 
     /**
-     * Setter for question.
+     * Setter for userId.
      *
-     * @param question
-     *            the question to set
+     * @param userId
+     *            the userId to set
      */
-    public final void setQuestion(QuestionDto question) {
-        this.question = question;
+    public final void setUserId(String userId) {
+        this.userId = userId;
     }
 
     /**
-     * Getter for choice.
+     * Getter for questionId.
      *
-     * @return the choice
+     * @return the questionId
      */
-    public final ChoiceDto getChoice() {
-        return choice;
+    public final Integer getQuestionId() {
+        return questionId;
     }
 
     /**
-     * Setter for choice.
+     * Setter for questionId.
      *
-     * @param choice
-     *            the choice to set
+     * @param questionId
+     *            the questionId to set
      */
-    public final void setChoice(ChoiceDto choice) {
-        this.choice = choice;
+    public final void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
+    /**
+     * Getter for choiceId.
+     *
+     * @return the choiceId
+     */
+    public final Integer getChoiceId() {
+        return choiceId;
+    }
+
+    /**
+     * Setter for choiceId.
+     *
+     * @param choiceId
+     *            the choiceId to set
+     */
+    public final void setChoiceId(Integer choiceId) {
+        this.choiceId = choiceId;
+    }
 }

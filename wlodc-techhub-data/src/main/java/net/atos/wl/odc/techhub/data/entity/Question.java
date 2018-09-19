@@ -6,10 +6,12 @@ package net.atos.wl.odc.techhub.data.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -48,7 +50,7 @@ public class Question extends PersistableEntity {
     @Column(name = "question_type", nullable = false)
     private QuestionType questionType;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Choice> choices = new ArrayList<Choice>();
 
     @ManyToOne
@@ -166,5 +168,23 @@ public class Question extends PersistableEntity {
      */
     public void setTopic(Topic topic) {
         this.topic = topic;
+    }
+
+    /**
+     * Custom method to bind choice with question.
+     * 
+     * @param address
+     *            <code>net.atos.wl.odc.techhub.data.entity.Choice</code>.
+     */
+    public void addChoice(final Choice choice) {
+        if (choice != null) {
+            choice.setQuestion(this);
+            if (this.choices != null) {
+                this.choices.add(choice);
+            } else {
+                this.choices = new ArrayList<>();
+                this.choices.add(choice);
+            }
+        }
     }
 }

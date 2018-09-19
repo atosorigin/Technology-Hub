@@ -5,6 +5,9 @@ package net.atos.wl.odc.techhub.common.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
@@ -12,6 +15,7 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AttendanceDto implements Serializable {
 
     /**
@@ -19,9 +23,14 @@ public class AttendanceDto implements Serializable {
      */
     private static final long serialVersionUID = -7213220166365549430L;
 
+    @JsonProperty("id")
+    private Integer id;
+
+    @JsonProperty("roomNumber")
     private RoomNumber roomNumber;
 
-    private UserDto user;
+    @JsonProperty("userId")
+    private String userId;
 
     /**
      * Getter for roomNumber.
@@ -43,21 +52,41 @@ public class AttendanceDto implements Serializable {
     }
 
     /**
-     * Getter for user.
+     * Getter for id.
      *
-     * @return the user
+     * @return the id
      */
-    public final UserDto getUser() {
-        return user;
+    public final Integer getId() {
+        return id;
     }
 
     /**
-     * Setter for user.
+     * Setter for id.
      *
-     * @param user
-     *            the user to set
+     * @param id
+     *            the id to set
      */
-    public final void setUser(UserDto user) {
-        this.user = user;
+    public final void setId(Integer id) {
+        this.id = id;
     }
+
+    /**
+     * Getter for userId.
+     *
+     * @return the userId
+     */
+    public final String getUserId() {
+        return userId;
+    }
+
+    /**
+     * Setter for userId.
+     *
+     * @param userId
+     *            the userId to set
+     */
+    public final void setUserId(String userId) {
+        this.userId = userId;
+    }
+
 }

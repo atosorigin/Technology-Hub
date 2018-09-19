@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Data transfer object for presenter details.
@@ -16,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author a120065
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"userId", "firstName", "lastName", "location", "email", "mobile", "imageUrl"})
 public class PresenterDto implements Serializable {
 
     /**
@@ -24,6 +22,7 @@ public class PresenterDto implements Serializable {
      */
     private static final long serialVersionUID = 4993839245779845564L;
 
+    @JsonProperty("id")
     private Integer id;
 
     @JsonProperty("userId")

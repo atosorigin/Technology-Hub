@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Data transfer object for user details.
@@ -15,13 +14,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author a120065
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"userId", "firstName", "lastName", "location", "email", "mobile"})
 public class UserDto implements Serializable {
 
     /**
      * Generated serial version Id.
      */
     private static final long serialVersionUID = -604018936275238886L;
+
+    @JsonProperty("id")
+    private Integer id;
 
     @JsonProperty("userId")
     private String userId;
@@ -40,6 +41,25 @@ public class UserDto implements Serializable {
 
     @JsonProperty("mobile")
     private String mobile;
+
+    /**
+     * Getter for id.
+     *
+     * @return the id
+     */
+    public final Integer getId() {
+        return id;
+    }
+
+    /**
+     * Setter for id.
+     *
+     * @param id
+     *            the id to set
+     */
+    public final void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * Getter for userId.

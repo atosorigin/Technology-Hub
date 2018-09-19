@@ -5,11 +5,15 @@ package net.atos.wl.odc.techhub.common.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Data transfer object for choice details.
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChoiceDto implements Serializable {
 
     /**
@@ -17,9 +21,33 @@ public class ChoiceDto implements Serializable {
      */
     private static final long serialVersionUID = -4124128344279045326L;
 
+    @JsonProperty("id")
+    private Integer id;
+
+    @JsonProperty("number")
     private short number;
 
+    @JsonProperty("description")
     private String description;
+
+    /**
+     * Getter for id.
+     *
+     * @return the id
+     */
+    public final Integer getId() {
+        return id;
+    }
+
+    /**
+     * Setter for id.
+     *
+     * @param id
+     *            the id to set
+     */
+    public final void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * Getter for number.

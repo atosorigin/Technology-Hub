@@ -6,6 +6,9 @@ package net.atos.wl.odc.techhub.common.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import net.atos.wl.odc.techhub.common.enums.QuestionType;
 
 /**
@@ -13,6 +16,7 @@ import net.atos.wl.odc.techhub.common.enums.QuestionType;
  * 
  * @author a120065
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class QuestionDto implements Serializable {
 
     /**
@@ -20,15 +24,41 @@ public class QuestionDto implements Serializable {
      */
     private static final long serialVersionUID = 2926166567525737111L;
 
+    @JsonProperty("id")
+    private Integer id;
+
+    @JsonProperty("number")
     private short number;
 
+    @JsonProperty("description")
     private String description;
 
+    @JsonProperty("correctOption")
     private short correctOption;
 
+    @JsonProperty("questionType")
     private QuestionType questionType;
 
     private List<ChoiceDto> choices;
+
+    /**
+     * Getter for id.
+     *
+     * @return the id
+     */
+    public final Integer getId() {
+        return id;
+    }
+
+    /**
+     * Setter for id.
+     *
+     * @param id
+     *            the id to set
+     */
+    public final void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      * Getter for number.
