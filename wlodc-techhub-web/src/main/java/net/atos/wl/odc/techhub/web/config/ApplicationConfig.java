@@ -21,7 +21,10 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
      * servlet.config.annotation.CorsRegistry)
      */
     @Override
-    protected void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**").allowedOrigins("*");
+    protected void addCorsMappings(final CorsRegistry registry) {
+        registry.addMapping("/api/**").allowedOrigins("*")
+                        .allowedHeaders("origin", "content-type", "accept", "authorization", "access_token")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD").allowCredentials(true)
+                        .maxAge(3600);
     }
 }
