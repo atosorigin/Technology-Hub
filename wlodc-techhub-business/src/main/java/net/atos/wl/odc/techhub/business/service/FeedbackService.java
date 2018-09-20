@@ -1,19 +1,18 @@
 /*
  * Copyright (C) 2018 Worldline ODC.
  */
-package net.atos.wl.odc.techhub.data.dao;
+package net.atos.wl.odc.techhub.business.service;
 
 import java.util.List;
 
 import net.atos.wl.odc.techhub.common.dto.FeedbackDto;
-import net.atos.wl.odc.techhub.data.entity.Feedback;
 
 /**
- * Feedback DAO.
+ * Feedback Service.
  * 
  * @author a120065
  */
-public interface FeedbackDAO extends GenericDAO<Feedback> {
+public interface FeedbackService {
 
     /**
      * Method to post all user feedbacks.

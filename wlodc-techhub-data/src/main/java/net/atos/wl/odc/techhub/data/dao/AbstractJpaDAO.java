@@ -94,4 +94,21 @@ public abstract class AbstractJpaDAO<T extends PersistableEntity> implements Gen
     public final void setClazz(final Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }
+
+    /**
+     * Method to check if id exist for the entity if yes then use merge else use
+     * persist.
+     * 
+     * @param entity
+     *            T.
+     * @return T.
+     */
+    public T persistOrMerge(T entity) {
+        if (entity.getId() == null) {
+            this.entityManager.persist(entity);
+            return entity;
+        } else {
+            return this.entityManager.merge(entity);
+        }
+    }
 }

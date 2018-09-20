@@ -6,6 +6,8 @@ package net.atos.wl.odc.techhub.data.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +17,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "choice")
+@NamedQueries({
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Choice.fetchChoiceById", query = "SELECT c FROM Choice c where c.id = :id")})
 public class Choice extends PersistableEntity {
 
     /**
