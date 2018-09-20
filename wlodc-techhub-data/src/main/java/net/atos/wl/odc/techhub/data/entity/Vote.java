@@ -23,7 +23,7 @@ import net.atos.wl.odc.techhub.common.enums.VotingType;
 @Entity
 @Table(name = "vote")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUserAndTopic", query = "SELECT v FROM Vote v where v.user.userId = :userId AND v.topic.id = :topicId")})
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUser", query = "SELECT v FROM Vote v where v.user.userId = :userId")})
 public class Vote extends AuditableEntity {
 
     /**

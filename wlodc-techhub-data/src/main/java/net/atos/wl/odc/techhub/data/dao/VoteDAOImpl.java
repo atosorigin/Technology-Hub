@@ -47,7 +47,7 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
         final Topic topic = this.getTopicDAO().read(voteDto.getTopicId());
 
         // Create the vote instance and persist the same.
-        final Vote vote = this.getVoteByUserAndTopic(voteDto.getUserId(), voteDto.getTopicId());
+        final Vote vote = this.getVoteByUser(voteDto.getUserId());
         vote.setVoteType(voteDto.getVoteType());
         vote.setUser(user);
         vote.setTopic(topic);
@@ -60,16 +60,13 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
      * 
      * @param userId
      *            String.
-     * @param topicId
-     *            Integer.
      * @return <code>net.atos.wl.odc.techhub.data.entity.Vote</code>.
      */
     @SuppressWarnings("unchecked")
-    private Vote getVoteByUserAndTopic(final String userId, final Integer topicId) {
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUserAndTopic");
+    private Vote getVoteByUser(final String userId) {
+        final Query query =
+                        this.entityManager.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUser");
         query.setParameter("userId", userId);
-        query.setParameter("topicId", topicId);
         final List<Vote> votes = (List<Vote>) query.getResultList();
         if (!CollectionUtils.isEmpty(votes)) {
             return votes.get(0);
