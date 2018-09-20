@@ -9,6 +9,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
@@ -20,6 +22,8 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
  */
 @Entity
 @Table(name = "attendance")
+@NamedQueries({
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser", query = "SELECT a FROM Attendance a where a.user.userId = :userId")})
 public class Attendance extends AuditableEntity {
 
     /**

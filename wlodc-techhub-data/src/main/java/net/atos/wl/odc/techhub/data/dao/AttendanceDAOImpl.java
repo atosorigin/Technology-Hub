@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 import net.atos.wl.odc.techhub.data.entity.Attendance;
@@ -37,17 +38,19 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
      */
     @Override
     public void markAttendance(final String userId, final RoomNumber roomNumber) {
-        
+
         // First get the user details for which attendance is to be marked.
-        final Query query = this.entityManager.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
+        final Query query = this.entityManager
+                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
         query.setParameter("userId", userId);
         final User user = (User) query.getSingleResult();
-        
+
         // Create the attendance instance and persist the same.
-        final Attendance attendance = new Attendance();
+        final Attendance attendance = this.getAttendanceByUser(userId);
         attendance.setRoomNumber(roomNumber);
         attendance.setUser(user);
-        this.create(attendance);
+
+        this.persistOrMerge(attendance);
     }
 
     /*
@@ -65,4 +68,22 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
         return query.getResultList();
     }
 
+    /**
+     * Method to fetch the attendance record based on the id.
+     * 
+     * @param userId
+     *            Integer.
+     * @return <code>net.atos.wl.odc.techhub.data.entity.Attendance</code>.
+     */
+    @SuppressWarnings("unchecked")
+    private Attendance getAttendanceByUser(final String userId) {
+        final Query query = this.entityManager
+                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
+        query.setParameter("userId", userId);
+        final List<Attendance> attendances = (List<Attendance>) query.getResultList();
+        if (!CollectionUtils.isEmpty(attendances)) {
+            return attendances.get(0);
+        }
+        return new Attendance();
+    }
 }
