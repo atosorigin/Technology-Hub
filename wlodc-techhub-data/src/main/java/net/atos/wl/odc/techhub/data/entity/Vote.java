@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,6 +22,8 @@ import net.atos.wl.odc.techhub.common.enums.VotingType;
  */
 @Entity
 @Table(name = "vote")
+@NamedQueries({
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUserAndTopic", query = "SELECT v FROM Vote v where v.user.userId = :userId AND v.topic.id = :topicId")})
 public class Vote extends AuditableEntity {
 
     /**

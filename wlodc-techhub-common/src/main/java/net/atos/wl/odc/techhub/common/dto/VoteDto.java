@@ -30,7 +30,7 @@ public class VoteDto implements Serializable {
     private String userId;
 
     @JsonProperty("topicId")
-    private String topicId;
+    private Integer topicId;
 
     @JsonProperty("voteType")
     private VotingType voteType;
@@ -78,7 +78,7 @@ public class VoteDto implements Serializable {
      *
      * @return the topicId
      */
-    public final String getTopicId() {
+    public final Integer getTopicId() {
         return topicId;
     }
 
@@ -88,7 +88,7 @@ public class VoteDto implements Serializable {
      * @param topicId
      *            the topicId to set
      */
-    public final void setTopicId(String topicId) {
+    public final void setTopicId(Integer topicId) {
         this.topicId = topicId;
     }
 

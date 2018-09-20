@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
@@ -23,6 +24,9 @@ import net.atos.wl.odc.techhub.data.entity.User;
  */
 @Repository
 public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements FeedbackDAO {
+
+    @Autowired
+    private UserDAO userDAO;
 
     /**
      * Default constructor.
@@ -41,14 +45,11 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
     @Override
     public void postUserFeedback(final List<FeedbackDto> userFeedbacks) {
 
-        // First get the user Id for which feedback has to be persisted.
+        // The user Id for which feedback has to be persisted.
         final String userId = userFeedbacks.get(0).getUserId();
 
-        // First get the user details for which attendance is to be marked.
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
-        query.setParameter("userId", userId);
-        final User user = (User) query.getSingleResult();
+        // Get the user by the user Id.
+        final User user = this.getUserDAO().findUserByUserId(userId);
 
         for (final FeedbackDto feedbackDto : userFeedbacks) {
             final Feedback feedback = this.getUserFeedback(feedbackDto.getUserId(), feedbackDto.getQuestionId());
@@ -114,4 +115,24 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
         query.setParameter("id", choiceId);
         return (Choice) query.getSingleResult();
     }
+
+    /**
+     * Getter for userDAO.
+     *
+     * @return the userDAO
+     */
+    public final UserDAO getUserDAO() {
+        return userDAO;
+    }
+
+    /**
+     * Setter for userDAO.
+     *
+     * @param userDAO
+     *            the userDAO to set
+     */
+    public final void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
 }

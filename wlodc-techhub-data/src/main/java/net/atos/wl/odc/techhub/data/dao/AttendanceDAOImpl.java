@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
@@ -21,6 +22,9 @@ import net.atos.wl.odc.techhub.data.entity.User;
  */
 @Repository
 public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements AttendanceDAO {
+
+    @Autowired
+    private UserDAO userDAO;
 
     /**
      * Default constructor.
@@ -40,10 +44,7 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
     public void markAttendance(final String userId, final RoomNumber roomNumber) {
 
         // First get the user details for which attendance is to be marked.
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
-        query.setParameter("userId", userId);
-        final User user = (User) query.getSingleResult();
+        final User user = this.getUserDAO().findUserByUserId(userId);
 
         // Create the attendance instance and persist the same.
         final Attendance attendance = this.getAttendanceByUser(userId);
@@ -85,5 +86,24 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
             return attendances.get(0);
         }
         return new Attendance();
+    }
+
+    /**
+     * Getter for userDAO.
+     *
+     * @return the userDAO
+     */
+    public final UserDAO getUserDAO() {
+        return userDAO;
+    }
+
+    /**
+     * Setter for userDAO.
+     *
+     * @param userDAO
+     *            the userDAO to set
+     */
+    public final void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 }
