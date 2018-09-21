@@ -148,7 +148,7 @@ public class TopicController {
      */
     @RequestMapping(value = "/api/topics/presenter/{presenterId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get topics by given presenter id.")
-    public ResponseEntity<List<TopicDto>> getTopicsByPresenter(@PathVariable("timeSlot") final Integer presenterId) {
+    public ResponseEntity<List<TopicDto>> getTopicsByPresenter(@PathVariable("presenterId") final Integer presenterId) {
         log.info("Getting topics by presenter " + presenterId);
         final List<TopicDto> topics = this.topicService.findTopicsByPresenter(presenterId);
         log.info("Total number of topics found " + topics.size());
