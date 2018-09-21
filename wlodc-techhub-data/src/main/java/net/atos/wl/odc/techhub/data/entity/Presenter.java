@@ -6,14 +6,14 @@ package net.atos.wl.odc.techhub.data.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * JPA Entity representing the presenter information.
@@ -50,7 +50,8 @@ public class Presenter extends PersistableEntity {
     @Column(name = "image_url", nullable = true)
     private String imageUrl;
 
-    @ManyToMany(mappedBy = "presenters", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "presenters")
+    @JsonBackReference
     private List<Topic> topics = new ArrayList<Topic>();
 
     /**

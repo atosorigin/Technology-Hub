@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
@@ -42,6 +43,7 @@ public class TopicDto implements Serializable {
     @JsonProperty("roomNumber")
     private RoomNumber roomNumber;
 
+    @JsonManagedReference
     private List<PresenterDto> presenters;
 
     /**

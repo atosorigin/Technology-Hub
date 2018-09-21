@@ -6,6 +6,7 @@ package net.atos.wl.odc.techhub.common.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -46,7 +47,7 @@ public class PresenterDto implements Serializable {
     @JsonProperty("imageUrl")
     private String imageUrl;
 
-    @JsonProperty("topics")
+    @JsonBackReference
     private List<TopicDto> topics;
 
     /**

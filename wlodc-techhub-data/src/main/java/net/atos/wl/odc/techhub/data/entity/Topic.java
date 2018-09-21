@@ -21,6 +21,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
@@ -64,11 +66,13 @@ public class Topic extends PersistableEntity {
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "topic_presenter_table", joinColumns = {@JoinColumn(name = "topic_id")}, inverseJoinColumns = {
             @JoinColumn(name = "presenter_id")})
+    @JsonManagedReference
     private List<Presenter> presenters = new ArrayList<Presenter>();
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "topic_user_table", joinColumns = {@JoinColumn(name = "topic_id")}, inverseJoinColumns = {
             @JoinColumn(name = "user_id")})
+    @JsonManagedReference
     private List<User> users = new ArrayList<User>();
 
     @OneToMany(mappedBy = "topic", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)

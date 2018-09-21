@@ -13,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * JPA Entity representing the presenter information.
  * 
@@ -49,6 +51,7 @@ public class User extends AuditableEntity {
     private String location;
 
     @ManyToMany(mappedBy = "users")
+    @JsonBackReference
     private List<Topic> topics = new ArrayList<Topic>();
 
     /**
