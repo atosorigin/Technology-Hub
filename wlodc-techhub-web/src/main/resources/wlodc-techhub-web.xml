@@ -19,5 +19,5 @@
 	<!-- Scans within the base package of the application for @Component classes 
 		to configure as beans. -->
 	<context:component-scan
-		base-package="net.atos.wl.odc.techhub.web.controller, net.atos.wl.odc.techhub.web.config" />
+		base-package="net.atos.wl.odc.techhub.web.controller" />
 </beans>
