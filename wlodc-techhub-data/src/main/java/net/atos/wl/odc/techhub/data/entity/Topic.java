@@ -35,7 +35,7 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicById", query = "SELECT t FROM Topic t where t.id = :id"),
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByRoom", query = "SELECT t FROM Topic t where t.roomNumber = :roomNumber"),
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsBySlot", query = "SELECT t FROM Topic t where t.timeSlot = :timeSlot"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :id")})
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :presenterId")})
 public class Topic extends PersistableEntity {
 
     /**

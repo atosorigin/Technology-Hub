@@ -6,6 +6,7 @@ package net.atos.wl.odc.techhub.business.service;
 import java.util.List;
 
 import net.atos.wl.odc.techhub.common.dto.TopicDto;
+import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
  * Topic Service.
@@ -54,4 +55,33 @@ public interface TopicService {
      * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
      */
     List<TopicDto> findAllTopics();
+
+    /**
+     * Method to find topics that will be presented within a particular room
+     * identified by given room number.
+     * 
+     * @param roomNumber
+     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
+     */
+    List<TopicDto> findTopicsByRoomNumber(final RoomNumber roomNumber);
+
+    /**
+     * Method to find topics that will be presented within given time slot.
+     * 
+     * @param timeSlot
+     *            String.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
+     */
+    List<TopicDto> findTopicsByTimeSlot(final String timeSlot);
+
+    /**
+     * Method to find topics that will be presented presenter identified by
+     * given id.
+     * 
+     * @param presenterId
+     *            Integer.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
+     */
+    List<TopicDto> findTopicsByPresenter(final Integer presenterId);
 }

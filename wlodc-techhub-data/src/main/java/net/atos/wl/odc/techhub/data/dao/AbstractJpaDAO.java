@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import net.atos.wl.odc.techhub.common.enums.State;
 import net.atos.wl.odc.techhub.data.entity.PersistableEntity;
@@ -110,5 +111,16 @@ public abstract class AbstractJpaDAO<T extends PersistableEntity> implements Gen
         } else {
             return this.entityManager.merge(entity);
         }
+    }
+
+    /**
+     * Method to return instance of named query for the given query name.
+     * 
+     * @param namedQuery
+     *            String.
+     * @return <code>javax.persistence.Query</code>.
+     */
+    public Query createNamedQuery(final String namedQuery) {
+        return this.entityManager.createNamedQuery(namedQuery);
     }
 }

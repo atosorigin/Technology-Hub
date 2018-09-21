@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import net.atos.wl.odc.techhub.business.mapper.ObjectMapper;
 import net.atos.wl.odc.techhub.common.dto.TopicDto;
+import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 import net.atos.wl.odc.techhub.data.dao.TopicDAO;
 import net.atos.wl.odc.techhub.data.entity.Topic;
 
@@ -120,22 +121,40 @@ public class TopicServiceImpl implements TopicService {
      */
     @Override
     public List<TopicDto> findAllTopics() {
+        return this.mapTopicsEntityToDto(this.getTopicDAO().findAll());
+    }
 
-        // First fetch all topics by invoking DAO.
-        final List<Topic> topics = this.getTopicDAO().findAll();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.TopicService#
+     * findTopicsByRoomNumber(net.atos.wl.odc.techhub.common.enums.RoomNumber)
+     */
+    @Override
+    public List<TopicDto> findTopicsByRoomNumber(final RoomNumber roomNumber) {
+        return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByRoomNumber(roomNumber));
+    }
 
-        // If topics are found them iterate through the list and map all
-        // entities to TopicDto.
-        if (topics != null && !topics.isEmpty()) {
-            final List<TopicDto> topicDtos = new ArrayList<TopicDto>();
-            for (final Topic topic : topics) {
-                topicDtos.add(this.objectMapper.map(topic, TopicDto.class));
-            }
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.TopicService#
+     * findTopicsByTimeSlot(java.lang.String)
+     */
+    @Override
+    public List<TopicDto> findTopicsByTimeSlot(final String timeSlot) {
+        return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByTimeSlot(timeSlot));
+    }
 
-            return topicDtos;
-        }
-
-        return new ArrayList<TopicDto>();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.TopicService#
+     * findTopicsByPresenter(java.lang.Integer)
+     */
+    @Override
+    public List<TopicDto> findTopicsByPresenter(final Integer presenterId) {
+        return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByPresenter(presenterId));
     }
 
     /**
@@ -174,5 +193,28 @@ public class TopicServiceImpl implements TopicService {
      */
     public final void setObjectMapper(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+    }
+
+    /**
+     * Common method to map list of topic entities to topic dto.
+     * 
+     * @param topics
+     *            List of
+     *            <code>net.atos.wl.odc.techhub.data.entity.Topic</code>.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
+     */
+    private List<TopicDto> mapTopicsEntityToDto(final List<Topic> topics) {
+        // If topics are found them iterate through the list and map all
+        // entities to TopicDto.
+        if (topics != null && !topics.isEmpty()) {
+            final List<TopicDto> topicDtos = new ArrayList<TopicDto>();
+            for (final Topic topic : topics) {
+                topicDtos.add(this.objectMapper.map(topic, TopicDto.class));
+            }
+
+            return topicDtos;
+        }
+
+        return new ArrayList<TopicDto>();
     }
 }
