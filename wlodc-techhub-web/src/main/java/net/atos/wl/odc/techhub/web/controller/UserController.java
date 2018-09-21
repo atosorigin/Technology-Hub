@@ -105,4 +105,18 @@ public class UserController {
         log.info("Total number of users found " + users.size());
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
+    /**
+     * REST service to get users for the given topic.
+     * 
+     * @return ResponseEntity with user and HTTP status.
+     */
+    @RequestMapping(value = "/api/users/topic/{topicId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get users for given topic.")
+    public ResponseEntity<List<UserDto>> getUsersByTopic(@PathVariable("topicId") final Integer topicId) {
+        log.info("Getting users for topic " + topicId);
+        final List<UserDto> users = this.userService.findUsersByTopic(topicId);
+        log.info("Total number of users found " + users.size());
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
 }

@@ -60,9 +60,16 @@ public interface UserService {
     /**
      * Method to find all users.
      * 
-     * @return List of
-     *         <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
      */
     List<UserDto> findAllUsers();
 
+    /**
+     * Method to fetch the users for the given topic.
+     * 
+     * @param topicId
+     *            Integer.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
+     */
+    List<UserDto> findUsersByTopic(final Integer topicId);
 }

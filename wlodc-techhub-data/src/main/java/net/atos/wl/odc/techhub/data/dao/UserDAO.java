@@ -3,6 +3,8 @@
  */
 package net.atos.wl.odc.techhub.data.dao;
 
+import java.util.List;
+
 import net.atos.wl.odc.techhub.data.entity.User;
 
 /**
@@ -20,4 +22,13 @@ public interface UserDAO extends GenericDAO<User> {
      * @return <code>net.atos.wl.odc.techhub.data.entity.User</code>.
      */
     User findUserByUserId(final String userId);
+
+    /**
+     * Method to fetch the users for the given topic.
+     * 
+     * @param topicId
+     *            Integer.
+     * @return List of <code>net.atos.wl.odc.techhub.data.entity.User</code>.
+     */
+    List<User> findUsersByTopic(final Integer topicId);
 }

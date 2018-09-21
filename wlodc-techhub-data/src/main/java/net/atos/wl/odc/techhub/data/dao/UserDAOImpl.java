@@ -44,4 +44,18 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
         }
         return null;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.data.dao.UserDAO#findUsersByTopic(java.lang.
+     * Integer)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<User> findUsersByTopic(final Integer topicId) {
+        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUsersByTopic");
+        query.setParameter("topicId", topicId);
+        return query.getResultList();
+    }
 }

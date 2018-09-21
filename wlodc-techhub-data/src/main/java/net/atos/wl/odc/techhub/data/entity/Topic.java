@@ -112,6 +112,37 @@ public class Topic extends PersistableEntity {
     }
 
     /**
+     * Custom method to add presenter to a topic.
+     * 
+     * @param address
+     *            <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
+     */
+    public void addPresenter(final Presenter presenter) {
+        if (presenter != null) {
+            if (this.presenters != null) {
+                this.presenters.add(presenter);
+            } else {
+                this.presenters = new ArrayList<>();
+                this.presenters.add(presenter);
+            }
+        }
+    }
+
+    /**
+     * Custom method to remove presenter from a topic.
+     * 
+     * @param address
+     *            <code>net.atos.wl.odc.techhub.data.entity.Presenter</code>.
+     */
+    public void removePresenter(final Presenter presenter) {
+        if (presenter != null) {
+            if (this.presenters != null) {
+                this.presenters.remove(presenter);
+            }
+        }
+    }
+
+    /**
      * Getter for name.
      *
      * @return the name

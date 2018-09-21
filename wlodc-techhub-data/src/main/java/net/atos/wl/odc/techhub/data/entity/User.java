@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.User.fetchUsersByTopic", query = "SELECT u FROM Topic t JOIN t.users u where t.id = :id"),
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.User.fetchUsersByTopic", query = "SELECT u FROM Topic t JOIN t.users u where t.id = :topicId"),
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId", query = "SELECT u FROM User u where u.userId = :userId")})
 public class User extends AuditableEntity {
 

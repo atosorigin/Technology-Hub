@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.business.mapper.ObjectMapper;
 import net.atos.wl.odc.techhub.common.dto.UserDto;
@@ -152,6 +153,18 @@ public class UserServiceImpl implements UserService {
         return new ArrayList<UserDto>();
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * net.atos.wl.odc.techhub.business.service.UserService#findUsersByTopic(
+     * java.lang.Integer)
+     */
+    @Override
+    public List<UserDto> findUsersByTopic(final Integer topicId) {
+        return this.mapUsersEntityToDto(this.getUserDAO().findUsersByTopic(topicId));
+    }
+
     /**
      * Getter for userDAO.
      *
@@ -188,5 +201,23 @@ public class UserServiceImpl implements UserService {
      */
     public final void setObjectMapper(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+    }
+
+    /**
+     * Common method to map list of topic entities to topic dto.
+     * 
+     * @param users
+     *            List of <code>net.atos.wl.odc.techhub.data.entity.User</code>.
+     * @return List of <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
+     */
+    private List<UserDto> mapUsersEntityToDto(final List<User> users) {
+        if (!CollectionUtils.isEmpty(users)) {
+            final List<UserDto> userDtos = new ArrayList<UserDto>();
+            for (final User user : users) {
+                userDtos.add(this.objectMapper.map(user, UserDto.class));
+            }
+            return userDtos;
+        }
+        return new ArrayList<UserDto>();
     }
 }
