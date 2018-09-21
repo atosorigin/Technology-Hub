@@ -41,7 +41,7 @@ public class AuthController {
      *            String.
      * @return ResponseEntity<UserDto>.
      */
-    @RequestMapping(value = "/api/auth", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/auth", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Authenticate user and return user detail if user is valid.")
     public ResponseEntity<UserDto> authenticateUser(@RequestHeader(value = "Authorization") final String authString) {
         try {

@@ -5,10 +5,12 @@ package net.atos.wl.odc.techhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -57,17 +59,26 @@ public class WorldlineODCTechHubApplication {
         SpringApplication.run(WorldlineODCTechHubApplication.class, args);
     }
 
+    /**
+     * Method to construct the CORS Filter configuration.
+     * 
+     * @return <code>org.springframework.boot.web.servlet.FilterRegistrationBean</code>.
+     */
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(final CorsRegistry registry) {
-                registry.addMapping("/api/**").allowedOrigins("*")
-                                .allowedHeaders("origin", "content-type", "accept", "authorization", "access_token")
-                                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
-                                .allowCredentials(true).maxAge(3600);
-            }
-        };
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public FilterRegistrationBean corsFilter() {
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        final CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin(CorsConfiguration.ALL);
+        config.addAllowedHeader(CorsConfiguration.ALL);
+        config.addAllowedMethod(CorsConfiguration.ALL);
+        config.setMaxAge(3600L);
+        source.registerCorsConfiguration("/**", config);
+
+        final FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+        bean.setOrder(0);
+        return bean;
     }
 
     /**
