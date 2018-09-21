@@ -43,4 +43,33 @@ public interface TopicDAO extends GenericDAO<Topic> {
      * @return List of <code>net.atos.wl.odc.techhub.data.entity.Topic</code>.
      */
     List<Topic> findTopicsByPresenter(final Integer presenterId);
+
+    /**
+     * Method to find topics for which user has registered for.
+     * 
+     * @param userId
+     *            String.
+     * @return List of <code>net.atos.wl.odc.techhub.data.entity.Topic</code>.
+     */
+    List<Topic> findTopicsByUser(final String userId);
+
+    /**
+     * Method to register a given user to a topic.
+     * 
+     * @param userId
+     *            String.
+     * @param topicId
+     *            Integer.
+     */
+    void registerUserToTopic(final String userId, final Integer topicId);
+
+    /**
+     * Method to un-register a given user from a topic.
+     * 
+     * @param userId
+     *            String.
+     * @param topicId
+     *            Integer.
+     */
+    void unRegisterUserFromTopic(final String userId, final Integer topicId);
 }

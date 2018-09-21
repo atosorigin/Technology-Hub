@@ -35,7 +35,9 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicById", query = "SELECT t FROM Topic t where t.id = :id"),
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByRoom", query = "SELECT t FROM Topic t where t.roomNumber = :roomNumber"),
         @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsBySlot", query = "SELECT t FROM Topic t where t.timeSlot = :timeSlot"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :presenterId")})
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :presenterId"),
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId"),
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicByIdAndUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId AND t.id = :topicId")})
 public class Topic extends PersistableEntity {
 
     /**
@@ -77,6 +79,37 @@ public class Topic extends PersistableEntity {
 
     @ManyToOne
     private Event event;
+
+    /**
+     * Custom method to register user with topic.
+     * 
+     * @param address
+     *            <code>net.atos.wl.odc.techhub.data.entity.User</code>.
+     */
+    public void addUser(final User user) {
+        if (user != null) {
+            if (this.users != null) {
+                this.users.add(user);
+            } else {
+                this.users = new ArrayList<>();
+                this.users.add(user);
+            }
+        }
+    }
+
+    /**
+     * Custom method to un-register user from topic.
+     * 
+     * @param address
+     *            <code>net.atos.wl.odc.techhub.data.entity.User</code>.
+     */
+    public void removeUser(final User user) {
+        if (user != null) {
+            if (this.users != null) {
+                this.users.remove(user);
+            }
+        }
+    }
 
     /**
      * Getter for name.

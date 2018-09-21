@@ -47,7 +47,7 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
         final User user = this.getUserDAO().findUserByUserId(userId);
 
         // Create the attendance instance and persist the same.
-        final Attendance attendance = this.getAttendanceByUser(userId);
+        final Attendance attendance = this.getAttendanceByUserAndRoom(userId, roomNumber);
         attendance.setRoomNumber(roomNumber);
         attendance.setUser(user);
 
@@ -78,10 +78,11 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
      * @return <code>net.atos.wl.odc.techhub.data.entity.Attendance</code>.
      */
     @SuppressWarnings("unchecked")
-    private Attendance getAttendanceByUser(final String userId) {
+    private Attendance getAttendanceByUserAndRoom(final String userId, final RoomNumber roomNumber) {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByRoom");
         query.setParameter("userId", userId);
+        query.setParameter("roomNumber", roomNumber);
         final List<Attendance> attendances = (List<Attendance>) query.getResultList();
         if (!CollectionUtils.isEmpty(attendances)) {
             return attendances.get(0);

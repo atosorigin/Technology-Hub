@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.business.mapper.ObjectMapper;
 import net.atos.wl.odc.techhub.common.dto.TopicDto;
@@ -157,6 +158,41 @@ public class TopicServiceImpl implements TopicService {
         return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByPresenter(presenterId));
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * net.atos.wl.odc.techhub.business.service.TopicService#findTopicsByUser(
+     * java.lang.String)
+     */
+    @Override
+    public List<TopicDto> findTopicsByUser(final String userId) {
+        return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByUser(userId));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * net.atos.wl.odc.techhub.business.service.TopicService#registerUserToTopic
+     * (java.lang.String, java.lang.Integer)
+     */
+    @Override
+    public void registerUserToTopic(String userId, Integer topicId) {
+        this.getTopicDAO().registerUserToTopic(userId, topicId);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.TopicService#
+     * unRegisterUserFromTopic(java.lang.String, java.lang.Integer)
+     */
+    @Override
+    public void unRegisterUserFromTopic(String userId, Integer topicId) {
+        this.unRegisterUserFromTopic(userId, topicId);
+    }
+
     /**
      * Getter for topicDAO.
      *
@@ -204,17 +240,13 @@ public class TopicServiceImpl implements TopicService {
      * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
      */
     private List<TopicDto> mapTopicsEntityToDto(final List<Topic> topics) {
-        // If topics are found them iterate through the list and map all
-        // entities to TopicDto.
-        if (topics != null && !topics.isEmpty()) {
+        if (!CollectionUtils.isEmpty(topics)) {
             final List<TopicDto> topicDtos = new ArrayList<TopicDto>();
             for (final Topic topic : topics) {
                 topicDtos.add(this.objectMapper.map(topic, TopicDto.class));
             }
-
             return topicDtos;
         }
-
         return new ArrayList<TopicDto>();
     }
 }

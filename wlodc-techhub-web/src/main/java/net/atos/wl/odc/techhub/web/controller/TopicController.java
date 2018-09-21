@@ -110,6 +110,8 @@ public class TopicController {
     /**
      * REST service to get topics by room number.
      * 
+     * @param roomNumber
+     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>
      * @return ResponseEntity with topics and HTTP status.
      */
     @RequestMapping(value = "/api/topics/room/{roomNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -124,6 +126,8 @@ public class TopicController {
     /**
      * REST service to get topics by time slot.
      * 
+     * @param timeSlot
+     *            String.
      * @return ResponseEntity with topics and HTTP status.
      */
     @RequestMapping(value = "/api/topics/slot/{timeSlot}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -139,6 +143,8 @@ public class TopicController {
      * REST service to get topics by time slot.
      * 
      * @return ResponseEntity with topics and HTTP status.
+     * @param presenterId
+     *            Integer.
      */
     @RequestMapping(value = "/api/topics/presenter/{presenterId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get topics by given presenter id.")
@@ -148,4 +154,61 @@ public class TopicController {
         log.info("Total number of topics found " + topics.size());
         return new ResponseEntity<>(topics, HttpStatus.OK);
     }
+
+    /**
+     * REST service to get topics by user.
+     * 
+     * @return ResponseEntity with topics and HTTP status.
+     * @param presenterId
+     *            Integer.
+     */
+    @RequestMapping(value = "/api/topics/user/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get topics for the given user id.")
+    public ResponseEntity<List<TopicDto>> getTopicsByPresenter(@PathVariable("userId") final String userId) {
+        log.info("Getting topics for user " + userId);
+        final List<TopicDto> topics = this.topicService.findTopicsByUser(userId);
+        log.info("Total number of topics found " + topics.size());
+        return new ResponseEntity<>(topics, HttpStatus.OK);
+    }
+
+    /**
+     * REST service to register user to given topic.
+     * 
+     * @param userId
+     *            String.
+     * @param topicId
+     *            Integer.
+     * @return ResponseEntity with HTTP status.
+     */
+    @RequestMapping(value = "/api/topics/{topicId}/registerUser/{userId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Register user to a topic.")
+    public ResponseEntity<Void> registerUserToTopic(@PathVariable("userId") final String userId,
+                                                    @PathVariable("topicId") final Integer topicId) {
+
+        log.info("Registering user " + userId + " to topic " + topicId);
+        this.topicService.registerUserToTopic(userId, topicId);
+        log.info("Registration done successfully.");
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    /**
+     * REST service to un-register user from given topic.
+     * 
+     * @param userId
+     *            String.
+     * @param topicId
+     *            Integer.
+     * @return ResponseEntity with HTTP status.
+     */
+    @RequestMapping(value = "/api/topics/{topicId}/unRegisterUser/{userId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Unregister user to a topic.")
+    public ResponseEntity<Void> unRegisterUserFromTopic(@PathVariable("userId") final String userId,
+                                                        @PathVariable("topicId") final Integer topicId) {
+
+        log.info("Unregistering user " + userId + " from topic " + topicId);
+        this.topicService.unRegisterUserFromTopic(userId, topicId);
+        log.info("User has been unregistration successfully.");
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

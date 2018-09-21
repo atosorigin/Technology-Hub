@@ -21,7 +21,6 @@ import com.google.common.base.Preconditions;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.FeedbackService;
-import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
 import net.atos.wl.odc.techhub.common.dto.FeedbackDto;
 
 /**
@@ -48,7 +47,7 @@ public class FeedbackController {
      */
     @RequestMapping(value = "/api/feedback", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Post user feedback.")
-    public ResponseEntity<AttendanceDto> postUserFeedback(@RequestBody final List<FeedbackDto> userFeedbacks) {
+    public ResponseEntity<Void> postUserFeedback(@RequestBody final List<FeedbackDto> userFeedbacks) {
         Preconditions.checkNotNull(userFeedbacks);
         log.info("Posting user feedback.");
         this.feedbackService.postUserFeedback(userFeedbacks);

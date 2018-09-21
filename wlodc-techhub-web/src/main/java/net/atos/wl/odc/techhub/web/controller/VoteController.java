@@ -19,7 +19,6 @@ import com.google.common.base.Preconditions;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.VoteService;
-import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
 
 /**
@@ -45,7 +44,7 @@ public class VoteController {
      */
     @RequestMapping(value = "/api/vote", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Post user vote.")
-    public ResponseEntity<AttendanceDto> postUserVote(@RequestBody final VoteDto voteDto) {
+    public ResponseEntity<Void> postUserVote(@RequestBody final VoteDto voteDto) {
         Preconditions.checkNotNull(voteDto);
         log.info("Posting vote for user " + voteDto.getUserId());
         this.voteService.postUserVote(voteDto);
