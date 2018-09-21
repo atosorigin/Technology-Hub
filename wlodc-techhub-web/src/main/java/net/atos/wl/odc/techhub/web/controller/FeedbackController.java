@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Preconditions;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.FeedbackService;
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
 import net.atos.wl.odc.techhub.common.dto.FeedbackDto;
@@ -46,9 +47,10 @@ public class FeedbackController {
      * @return ResponseEntity with headers and HTTP status.
      */
     @RequestMapping(value = "/api/feedback", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Post user feedback.")
     public ResponseEntity<AttendanceDto> postUserFeedback(@RequestBody final List<FeedbackDto> userFeedbacks) {
         Preconditions.checkNotNull(userFeedbacks);
-        log.info("Posting user feedback");
+        log.info("Posting user feedback.");
         this.feedbackService.postUserFeedback(userFeedbacks);
         log.info("User feedback has been posted successfully.");
         return new ResponseEntity<>(HttpStatus.OK);

@@ -36,8 +36,7 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
     @Override
     @SuppressWarnings("unchecked")
     public User findUserByUserId(final String userId) {
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
+        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
         query.setParameter("userId", userId);
         final List<User> users = (List<User>) query.getResultList();
         if (!CollectionUtils.isEmpty(users)) {

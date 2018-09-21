@@ -23,7 +23,8 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 @Entity
 @Table(name = "attendance")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser", query = "SELECT a FROM Attendance a where a.user.userId = :userId")})
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser", query = "SELECT a FROM Attendance a where a.user.userId = :userId"),
+        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByRoom", query = "SELECT a FROM Attendance a where a.roomNumber = :roomNumber")})
 public class Attendance extends AuditableEntity {
 
     /**

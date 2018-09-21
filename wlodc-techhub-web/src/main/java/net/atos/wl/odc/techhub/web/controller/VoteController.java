@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Preconditions;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.VoteService;
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
@@ -43,9 +44,10 @@ public class VoteController {
      * @return ResponseEntity with headers and HTTP status.
      */
     @RequestMapping(value = "/api/vote", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Post user vote.")
     public ResponseEntity<AttendanceDto> postUserVote(@RequestBody final VoteDto voteDto) {
         Preconditions.checkNotNull(voteDto);
-        log.info("Posting vote for user", voteDto.getUserId());
+        log.info("Posting vote for user " + voteDto.getUserId());
         this.voteService.postUserVote(voteDto);
         log.info("User vote has been posted successfully.");
         return new ResponseEntity<>(HttpStatus.OK);

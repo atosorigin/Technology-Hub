@@ -64,7 +64,8 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
     @Override
     @SuppressWarnings("unchecked")
     public List<Attendance> getAttendanceByRoomNumber(final RoomNumber roomNumber) {
-        final Query query = this.entityManager.createQuery("from Attendance a where a.roomNumber = :roomNumber");
+        final Query query =
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByRoom");
         query.setParameter("roomNumber", roomNumber);
         return query.getResultList();
     }

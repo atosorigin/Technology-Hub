@@ -24,7 +24,7 @@ import net.atos.wl.odc.techhub.business.service.PresenterService;
 import net.atos.wl.odc.techhub.common.dto.PresenterDto;
 
 /**
- * Spring REST Controller for exposing presenter APIs.
+ * Spring REST Controller for exposing Presenters APIs.
  * 
  * @author a120065
  */

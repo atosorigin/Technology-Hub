@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Preconditions;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.AttendanceService;
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
@@ -46,9 +47,10 @@ public class AttendanceController {
      * @return ResponseEntity with headers and HTTP status.
      */
     @RequestMapping(value = "/api/attendance", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Mark attendance of a user for a particular room.")
     public ResponseEntity<AttendanceDto> markAttendance(@RequestBody final AttendanceDto attendanceDto) {
         Preconditions.checkNotNull(attendanceDto);
-        log.info("Marking attendance for user with Id", attendanceDto.getUserId());
+        log.info("Marking attendance for user with id " + attendanceDto.getUserId());
         this.attendanceService.markAttendance(attendanceDto.getUserId(), attendanceDto.getRoomNumber());
         log.info("Attendance has been marked successfully.");
         return new ResponseEntity<>(HttpStatus.OK);
@@ -60,10 +62,11 @@ public class AttendanceController {
      * @return ResponseEntity with presenter and HTTP status.
      */
     @RequestMapping(value = "/api/attendance/{roomNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get attendance by room.")
     public ResponseEntity<List<AttendanceDto>> getAttendanceByRoomNumber(@PathVariable("roomNumber") final RoomNumber roomNumber) {
-        log.info("Getting all attendance for room", roomNumber);
+        log.info("Getting attendance for room " + roomNumber);
         final List<AttendanceDto> attendance = this.attendanceService.getAttendanceByRoomNumber(roomNumber);
-        log.info("Total attendance for the room is", attendance.size());
+        log.info("Attendance for the room is " + attendance.size());
         return new ResponseEntity<>(attendance, HttpStatus.OK);
     }
 }

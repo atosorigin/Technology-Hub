@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
+import net.atos.wl.odc.techhub.common.enums.VotingType;
 import net.atos.wl.odc.techhub.data.entity.Topic;
 import net.atos.wl.odc.techhub.data.entity.User;
 import net.atos.wl.odc.techhub.data.entity.Vote;
@@ -47,7 +48,7 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
         final Topic topic = this.getTopicDAO().read(voteDto.getTopicId());
 
         // Create the vote instance and persist the same.
-        final Vote vote = this.getVoteByUser(voteDto.getUserId());
+        final Vote vote = this.getVoteByUserAndVoteType(voteDto.getUserId(), voteDto.getVoteType());
         vote.setVoteType(voteDto.getVoteType());
         vote.setUser(user);
         vote.setTopic(topic);
@@ -60,13 +61,16 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
      * 
      * @param userId
      *            String.
+     * @param votingType
+     *            <code>net.atos.wl.odc.techhub.common.enums.VotingType</code>
      * @return <code>net.atos.wl.odc.techhub.data.entity.Vote</code>.
      */
     @SuppressWarnings("unchecked")
-    private Vote getVoteByUser(final String userId) {
+    private Vote getVoteByUserAndVoteType(final String userId, final VotingType votingType) {
         final Query query =
-                        this.entityManager.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUser");
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUserAndVoteType");
         query.setParameter("userId", userId);
+        query.setParameter("votingType", votingType);
         final List<Vote> votes = (List<Vote>) query.getResultList();
         if (!CollectionUtils.isEmpty(votes)) {
             return votes.get(0);
