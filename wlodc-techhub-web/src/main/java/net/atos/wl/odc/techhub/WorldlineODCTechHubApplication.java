@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -53,6 +55,19 @@ public class WorldlineODCTechHubApplication {
      */
     public static void main(final String[] args) {
         SpringApplication.run(WorldlineODCTechHubApplication.class, args);
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(final CorsRegistry registry) {
+                registry.addMapping("/api/**").allowedOrigins("*")
+                                .allowedHeaders("origin", "content-type", "accept", "authorization", "access_token")
+                                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
+                                .allowCredentials(true).maxAge(3600);
+            }
+        };
     }
 
     /**
