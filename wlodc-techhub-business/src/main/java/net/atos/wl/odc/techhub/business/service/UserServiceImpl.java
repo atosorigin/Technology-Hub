@@ -14,8 +14,10 @@ import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.business.mapper.ObjectMapper;
 import net.atos.wl.odc.techhub.common.dto.UserDto;
+import net.atos.wl.odc.techhub.common.dto.WhiteListUserDto;
 import net.atos.wl.odc.techhub.data.dao.UserDAO;
 import net.atos.wl.odc.techhub.data.entity.User;
+import net.atos.wl.odc.techhub.data.entity.WhiteListUser;
 
 /**
  * User Service Implementation.
@@ -163,6 +165,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> findUsersByTopic(final Integer topicId) {
         return this.mapUsersEntityToDto(this.getUserDAO().findUsersByTopic(topicId));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.UserService#
+     * findWhiteListUserByUserId(java.lang.String)
+     */
+    @Override
+    public WhiteListUserDto findWhiteListUserByUserId(String userId) {
+        // Fetch user record for the given Id.
+        final WhiteListUser user = this.getUserDAO().findWhiteListUserByUserId(userId);
+
+        // If user exists then map entity information to UserDto.
+        if (user != null) {
+            return this.getObjectMapper().map(user, WhiteListUserDto.class);
+        }
+
+        return null;
     }
 
     /**

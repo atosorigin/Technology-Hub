@@ -6,6 +6,7 @@ package net.atos.wl.odc.techhub.business.service;
 import java.util.List;
 
 import net.atos.wl.odc.techhub.common.dto.UserDto;
+import net.atos.wl.odc.techhub.common.dto.WhiteListUserDto;
 
 /**
  * User Service.
@@ -72,4 +73,13 @@ public interface UserService {
      * @return List of <code>net.atos.wl.odc.techhub.common.dto.UserDto</code>.
      */
     List<UserDto> findUsersByTopic(final Integer topicId);
+
+    /**
+     * Method to find the user from the white list.
+     * 
+     * @param userId
+     *            String.
+     * @return <code>net.atos.wl.odc.techhub.common.dto.WhiteListUserDto</code>.
+     */
+    WhiteListUserDto findWhiteListUserByUserId(final String userId);
 }

@@ -3,7 +3,6 @@
  */
 package net.atos.wl.odc.techhub.business.service;
 
-import java.util.Base64;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -39,70 +38,38 @@ public class LdapService {
      * Service to authentic user credentials passes as authorization header and
      * return user details in case user is valid.
      * 
-     * @param authString
+     * @param userId
+     *            String.
+     * @param pass
      *            String.
      * @return <code>net.atos.wl.odc.common.dto.UserDto</code>.
      * @throws Exception
+     *             occurred while authenticating user.
      */
-    public UserDto authenticateUser(final String authString) throws Exception {
+    public UserDto authenticateUser(final String userId, final String pass) throws Exception {
 
-        // First decode the given authorization string.
-        final String decodedAuth = this.decodeAuthString(authString);
-
-        // First part of the decoded string would be user name.
-        final String userId = decodedAuth.substring(0, decodedAuth.indexOf(":")).trim();
-
-        // Second part of the decoded string would be password.
-        final String pass = decodedAuth.substring(decodedAuth.indexOf(":") + 1, decodedAuth.length()).trim();
-
-        // LDAP Connection settings for doing user validation.
-        final Properties props = new Properties();
-        props.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        props.put(Context.PROVIDER_URL, "ldaps://ldap.myatos.net:636/dc=atosorigin,dc=com");
-        props.put(Context.SECURITY_PRINCIPAL, "aoLdapKey=AA" + userId + ",ou=people,dc=atosorigin,dc=com");
-        props.put(Context.SECURITY_CREDENTIALS, pass);
-
-        InitialDirContext context = null;
         try {
-            // Authenticate the user.
-            context = new InitialDirContext(props);
+            // LDAP Connection settings for doing user validation.
+            final Properties props = new Properties();
+            props.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+            props.put(Context.PROVIDER_URL, "ldaps://ldap.myatos.net:636/dc=atosorigin,dc=com");
+            props.put(Context.SECURITY_PRINCIPAL, "aoLdapKey=AA" + userId + ",ou=people,dc=atosorigin,dc=com");
+            props.put(Context.SECURITY_CREDENTIALS, pass);
+
+            // Authenticate user against LDAP.
+            final InitialDirContext context = new InitialDirContext(props);
 
             // If user is valid then get the user details.
             UserDto userDto = this.getUserDetailFromDb(userId);
 
+            // If user exists in local DB return the same, else get his/her
+            // details from LDAP.
             if (userDto != null) {
                 return userDto;
             } else {
                 userDto = this.getUserDetailFromLdap(context, userId);
                 return this.getUserService().create(userDto);
             }
-        } catch (final Exception e) {
-            log.error("", e);
-            throw e;
-        }
-    }
-
-    /**
-     * Method to decode the given authorization string and return decoded value.
-     * 
-     * @param authString
-     *            String
-     * @return String decoded authorization value.
-     */
-    private String decodeAuthString(final String authString) {
-
-        // Split the authorization string into two parts.
-        final String[] authParts = authString.split("\\s+");
-
-        // Second part of the authorization string should be encoded user
-        // credentials.
-        final String authInfo = authParts[1];
-
-        // Decode the data back to original string.
-        byte[] bytes = null;
-        try {
-            bytes = Base64.getDecoder().decode(authInfo);
-            return new String(bytes);
         } catch (final Exception e) {
             log.error("", e);
             throw e;

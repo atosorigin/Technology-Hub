@@ -6,6 +6,7 @@ package net.atos.wl.odc.techhub.data.dao;
 import java.util.List;
 
 import net.atos.wl.odc.techhub.data.entity.User;
+import net.atos.wl.odc.techhub.data.entity.WhiteListUser;
 
 /**
  * User DAO.
@@ -31,4 +32,13 @@ public interface UserDAO extends GenericDAO<User> {
      * @return List of <code>net.atos.wl.odc.techhub.data.entity.User</code>.
      */
     List<User> findUsersByTopic(final Integer topicId);
+
+    /**
+     * Method to find the user from the white list.
+     * 
+     * @param userId
+     *            String.
+     * @return <code>net.atos.wl.odc.techhub.data.entity.WhiteListUser</code>.
+     */
+    WhiteListUser findWhiteListUserByUserId(final String userId);
 }

@@ -1,6 +1,7 @@
 DELETE FROM `wlodc-techhub`.`topic_presenter_table`;
 DELETE FROM `wlodc-techhub`.`topic`;
 DELETE FROM `wlodc-techhub`.`presenter`;
+DELETE FROM `wlodc-techhub`.`white_list_user`;
 
 INSERT INTO `wlodc-techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Opening Key Notes', 'topiclogo', 'Opening Key Notes', 'PN_TR01', '11:00 To 11:15');
 INSERT INTO `wlodc-techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Evidence Based Management', 'topiclogo', 'Evidence Based Management', 'PN_TR01', '11:15 To 12:15');
@@ -48,3 +49,9 @@ INSERT INTO `wlodc-techhub`.`topic_presenter_table` (`topic_id`, `presenter_id`)
 INSERT INTO `wlodc-techhub`.`topic_presenter_table` (`topic_id`, `presenter_id`) VALUES ((SELECT `id` FROM `wlodc-techhub`.`topic` WHERE `name`='Agile Testing extension and Product Owner Certifications'), (SELECT `id` FROM `wlodc-techhub`.`presenter` WHERE `user_id`='A173366'));
 INSERT INTO `wlodc-techhub`.`topic_presenter_table` (`topic_id`, `presenter_id`) VALUES ((SELECT `id` FROM `wlodc-techhub`.`topic` WHERE `name`='Agile Testing extension and Product Owner Certifications'), (SELECT `id` FROM `wlodc-techhub`.`presenter` WHERE `user_id`='A165124'));
 INSERT INTO `wlodc-techhub`.`topic_presenter_table` (`topic_id`, `presenter_id`) VALUES ((SELECT `id` FROM `wlodc-techhub`.`topic` WHERE `name`='Closing Notes and Prize Distribution'), (SELECT `id` FROM `wlodc-techhub`.`presenter` WHERE `user_id`='A175004'));
+
+INSERT INTO `wlodc-techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A120065');
+INSERT INTO `wlodc-techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A558026');
+INSERT INTO `wlodc-techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A558025');
+INSERT INTO `wlodc-techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A506970');
+INSERT INTO `wlodc-techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A502903');

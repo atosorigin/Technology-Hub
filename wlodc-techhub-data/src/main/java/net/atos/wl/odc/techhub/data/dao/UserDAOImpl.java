@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.data.entity.User;
+import net.atos.wl.odc.techhub.data.entity.WhiteListUser;
 
 /**
  * User DAO Implementation.
@@ -51,11 +52,31 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
      * @see net.atos.wl.odc.techhub.data.dao.UserDAO#findUsersByTopic(java.lang.
      * Integer)
      */
-    @SuppressWarnings("unchecked")
     @Override
+    @SuppressWarnings("unchecked")
     public List<User> findUsersByTopic(final Integer topicId) {
         final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUsersByTopic");
         query.setParameter("topicId", topicId);
         return query.getResultList();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * net.atos.wl.odc.techhub.data.dao.UserDAO#findWhiteListUserByUserId(java.
+     * lang.String)
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public WhiteListUser findWhiteListUserByUserId(String userId) {
+        final Query query =
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.WhiteListUser.fetchUserByUserId");
+        query.setParameter("userId", userId);
+        final List<WhiteListUser> users = (List<WhiteListUser>) query.getResultList();
+        if (!CollectionUtils.isEmpty(users)) {
+            return users.get(0);
+        }
+        return null;
     }
 }

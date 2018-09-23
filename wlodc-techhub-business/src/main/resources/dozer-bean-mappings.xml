@@ -71,4 +71,11 @@
 		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Vote
 		</class-b>
 	</mapping>
+
+	<mapping map-empty-string="false" map-null="false">
+		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.WhiteListUserDto
+		</class-a>
+		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.WhiteListUser
+		</class-b>
+	</mapping>
 </mappings>
