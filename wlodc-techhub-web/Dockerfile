@@ -16,5 +16,10 @@ ARG JAR_FILE=target/wlodc-techhub-web-0.0.1-SNAPSHOT.jar
 # Add the application's jar to the container
 ADD ${JAR_FILE} app.jar
 
+# Set the environment variables.
+ENV MYSQL_JDBC_URL="jdbc:mysql://localhost:3306/wlodc_techhub"
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=root
+
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
