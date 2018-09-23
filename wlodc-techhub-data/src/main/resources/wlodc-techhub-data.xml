@@ -21,12 +21,17 @@
 		for a connection are made. For proper pooling mechanism either use org.apache.commons.dbcp.BasicDataSource 
 		or com.mchange.v2.c3p0.ComboPooledDataSource. -->
 	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"
-			value="${db.driverClassName}" />
-		<property name="url" value="${db.url}" />
-		<property name="username" value="${db.username}" />
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${db.driverClass}" />
+		<property name="jdbcUrl" value="${db.jdbcUrl}" />
+		<property name="user" value="${db.user}" />
 		<property name="password" value="${db.password}" />
+		<property name="maxPoolSize" value="${db.maxPoolSize}" />
+		<property name="minPoolSize" value="${db.minPoolSize}" />
+		<property name="maxStatements" value="${db.maxStatements}" />
+		<property name="testConnectionOnCheckout"
+			value="${db.testConnection}" />
 	</bean>
 
 	<!-- This produces a container-managed EntityManagerFactory; rather than 

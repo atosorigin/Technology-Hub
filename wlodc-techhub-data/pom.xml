@@ -116,6 +116,13 @@
 			<version>${mysql.version}</version>
 		</dependency>
 
+		<!-- DB Connection Pooling -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+
 		<!-- Slf4j dependencies. SLF4J is a cleaner dependency and more efficient 
 			at runtime than commons-logging because it uses compile-time bindings instead 
 			of runtime discovery of the other logging frameworks it integrates. -->

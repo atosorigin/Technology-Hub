@@ -47,7 +47,7 @@ public class PresenterController {
     @RequestMapping(value = "/api/presenters", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PresenterDto> createPresenter(@RequestBody final PresenterDto presenterDto) {
         Preconditions.checkNotNull(presenterDto);
-        log.info("Adding a new presenter details with user Id", presenterDto.getUserId());
+        log.info("Adding a new presenter details with user id " + presenterDto.getUserId());
         final PresenterDto persistedPresenterDto = this.presenterService.create(presenterDto);
         log.info("Presenter detail was added successfully.");
         return new ResponseEntity<>(persistedPresenterDto, HttpStatus.CREATED);
@@ -62,10 +62,10 @@ public class PresenterController {
      */
     @RequestMapping(value = "/api/presenters/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PresenterDto> getPresenter(@PathVariable("userId") final String userId) {
-        log.info("Getting presenter details with user Id", userId);
+        log.info("Getting presenter details with user id " + userId);
         final PresenterDto presenterDto = this.presenterService.findPresenterByUserId(userId);
         if (presenterDto == null) {
-            log.info("Presenter not found with user Id", userId);
+            log.info("Presenter not found with user id " + userId);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         log.info("Presenter exists. Returning the detail for the same.");
@@ -82,7 +82,7 @@ public class PresenterController {
     @RequestMapping(value = "/api/presenters", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PresenterDto> updatePresenter(@RequestBody final PresenterDto presenterDto) {
         Preconditions.checkNotNull(presenterDto);
-        log.info("Updating presenter details with user Id", presenterDto.getUserId());
+        log.info("Updating presenter details with user id " + presenterDto.getUserId());
         this.presenterService.update(presenterDto);
         log.info("Presenter detail was updated successfully.");
         return new ResponseEntity<>(presenterDto, HttpStatus.OK);
@@ -97,7 +97,7 @@ public class PresenterController {
     public ResponseEntity<List<PresenterDto>> getAllPresenters() {
         log.info("Getting all presenters.");
         final List<PresenterDto> presenters = this.presenterService.findAllPresenters();
-        log.info("Total number of presenters found", presenters.size());
+        log.info("Total number of presenters found " + presenters.size());
         return new ResponseEntity<>(presenters, HttpStatus.OK);
     }
 }
