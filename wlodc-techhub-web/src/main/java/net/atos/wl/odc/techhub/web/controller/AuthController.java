@@ -20,7 +20,7 @@ import net.atos.wl.odc.techhub.business.service.LdapService;
 import net.atos.wl.odc.techhub.common.dto.UserDto;
 
 /**
- * Spring REST Controller for exposing user authentication APIs.
+ * Spring REST Controller for exposing user Authentication APIs.
  * 
  * @author a120065
  */

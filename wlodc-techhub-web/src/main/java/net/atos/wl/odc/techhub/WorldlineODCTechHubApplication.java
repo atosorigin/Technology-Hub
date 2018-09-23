@@ -1,17 +1,24 @@
-/**
- * 
+/*
+ * Copyright (C) 2018 Worldline ODC.
  */
 package net.atos.wl.odc.techhub;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 
+import net.atos.wl.odc.techhub.web.viewResolver.ExcelViewResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -91,6 +98,36 @@ public class WorldlineODCTechHubApplication {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
                         .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.techhub.web.controller"))
                         .paths(PathSelectors.any()).build();
+    }
+
+    /**
+     * Configure the view resolver for excel export.
+     * 
+     * @param manager
+     *            <code>org.springframework.web.accept.ContentNegotiationManager</code>.
+     * @return resolver
+     *         <code>org.springframework.web.servlet.view.ContentNegotiatingViewResolver</code>.
+     */
+    @Bean
+    public ViewResolver contentNegotiatingViewResolver(final ContentNegotiationManager manager) {
+        final ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
+        resolver.setContentNegotiationManager(manager);
+
+        // Define all possible view resolvers
+        final List<ViewResolver> resolvers = new ArrayList<>();
+        resolvers.add(excelViewResolver());
+
+        resolver.setViewResolvers(resolvers);
+        return resolver;
+    }
+
+    /*
+     * Configure View resolver to provide XLS output using Apache POI library to
+     * generate XLS output for an object content
+     */
+    @Bean(name = "excelView")
+    public ViewResolver excelViewResolver() {
+        return new ExcelViewResolver();
     }
 
     /**

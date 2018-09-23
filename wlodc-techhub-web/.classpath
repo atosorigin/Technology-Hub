@@ -223,6 +223,42 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/io/springfox/springfox-swagger-ui/2.9.2/springfox-swagger-ui-2.9.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi/4.0.0/poi-4.0.0.jar" sourcepath="M2_REPO/org/apache/poi/poi/4.0.0/poi-4.0.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/poi/poi/4.0.0/poi-4.0.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.11/commons-codec-1.11.jar" sourcepath="M2_REPO/commons-codec/commons-codec/1.11/commons-codec-1.11-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar" sourcepath="M2_REPO/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml/4.0.0/poi-ooxml-4.0.0.jar" sourcepath="M2_REPO/org/apache/poi/poi-ooxml/4.0.0/poi-ooxml-4.0.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/poi/poi-ooxml/4.0.0/poi-ooxml-4.0.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml-schemas/4.0.0/poi-ooxml-schemas-4.0.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/xmlbeans/xmlbeans/3.0.1/xmlbeans-3.0.1.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/xmlbeans/xmlbeans/3.0.1/xmlbeans-3.0.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar" sourcepath="M2_REPO/org/apache/commons/commons-compress/1.18/commons-compress-1.18-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/commons/commons-compress/1.18/commons-compress-1.18-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar" sourcepath="M2_REPO/com/github/virtuald/curvesapi/1.04/curvesapi-1.04-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar" sourcepath="M2_REPO/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25-sources.jar">
     <attributes>
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25-javadoc.jar!/" name="javadoc_location"/>

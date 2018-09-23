@@ -59,7 +59,7 @@ public class AttendanceController {
     /**
      * REST service to get attendance for the given room.
      * 
-     * @return ResponseEntity with presenter and HTTP status.
+     * @return ResponseEntity with attendance and HTTP status.
      */
     @RequestMapping(value = "/api/attendance/{roomNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get attendance by room.")

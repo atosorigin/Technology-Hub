@@ -22,7 +22,7 @@ import net.atos.wl.odc.techhub.business.service.VoteService;
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
 
 /**
- * Spring REST Controller for exposing Vote APIs.
+ * Spring REST Controller for exposing Voting APIs.
  * 
  * @author a120065
  */

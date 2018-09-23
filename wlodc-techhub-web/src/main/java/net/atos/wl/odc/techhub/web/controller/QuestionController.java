@@ -25,7 +25,7 @@ import net.atos.wl.odc.techhub.business.service.QuestionService;
 import net.atos.wl.odc.techhub.common.dto.QuestionDto;
 
 /**
- * Spring REST Controller for exposing Topics APIs.
+ * Spring REST Controller for exposing Questions APIs.
  * 
  * @author a120065
  */
