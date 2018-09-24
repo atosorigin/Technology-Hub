@@ -3,7 +3,11 @@
  */
 package net.atos.wl.odc.techhub.data.dao;
 
+import java.util.List;
+
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
+import net.atos.wl.odc.techhub.common.dto.VoteStatsDto;
+import net.atos.wl.odc.techhub.common.enums.VotingType;
 
 /**
  * Vote DAO.
@@ -19,4 +23,14 @@ public interface VoteDAO {
      *            <code>net.atos.wl.odc.techhub.common.dto.VoteDto</code>.
      */
     void postUserVote(final VoteDto voteDto);
+
+    /**
+     * Method to get latest vote statistics for the given voting type.
+     * 
+     * @param votingType
+     *            <code>net.atos.wl.odc.techhub.common.enums.VotingType</code>.
+     * @return List of
+     *         <code>net.atos.wl.odc.techhub.common.dto.VoteStatsDto</code>.
+     */
+    List<VoteStatsDto> getVoteStatsByVoteType(final VotingType votingType);
 }

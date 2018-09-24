@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -127,7 +128,7 @@ public class QuestionServiceImpl implements QuestionService {
 
         // If questions are found them iterate through the list and map all
         // entities to QuestionDto.
-        if (questions != null && !questions.isEmpty()) {
+        if (CollectionUtils.isNotEmpty(questions)) {
             final List<QuestionDto> questionDtos = new ArrayList<QuestionDto>();
             for (final Question question : questions) {
                 questionDtos.add(this.objectMapper.map(question, QuestionDto.class));

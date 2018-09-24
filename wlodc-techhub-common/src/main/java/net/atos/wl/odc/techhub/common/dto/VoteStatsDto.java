@@ -5,29 +5,21 @@ package net.atos.wl.odc.techhub.common.dto;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.atos.wl.odc.techhub.common.enums.VotingType;
 
 /**
- * Data transfer object for vote details.
+ * Data transfer object for vote statistics.
  * 
  * @author a120065
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class VoteDto implements Serializable {
+public class VoteStatsDto implements Serializable {
 
     /**
      * Generated serial version Id.
      */
-    private static final long serialVersionUID = 1763986856498563110L;
-
-    @JsonProperty("id")
-    private Integer id;
-
-    @JsonProperty("userId")
-    private String userId;
+    private static final long serialVersionUID = 910652617817679650L;
 
     @JsonProperty("topicId")
     private Integer topicId;
@@ -38,43 +30,8 @@ public class VoteDto implements Serializable {
     @JsonProperty("voteType")
     private VotingType voteType;
 
-    /**
-     * Getter for id.
-     *
-     * @return the id
-     */
-    public final Integer getId() {
-        return id;
-    }
-
-    /**
-     * Setter for id.
-     *
-     * @param id
-     *            the id to set
-     */
-    public final void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for userId.
-     *
-     * @return the userId
-     */
-    public final String getUserId() {
-        return userId;
-    }
-
-    /**
-     * Setter for userId.
-     *
-     * @param userId
-     *            the userId to set
-     */
-    public final void setUserId(String userId) {
-        this.userId = userId;
-    }
+    @JsonProperty("totalVotes")
+    private Integer totalVotes;
 
     /**
      * Getter for topicId.
@@ -131,5 +88,24 @@ public class VoteDto implements Serializable {
      */
     public final void setVoteType(VotingType voteType) {
         this.voteType = voteType;
+    }
+
+    /**
+     * Getter for totalVotes.
+     *
+     * @return the totalVotes
+     */
+    public final Integer getTotalVotes() {
+        return totalVotes;
+    }
+
+    /**
+     * Setter for totalVotes.
+     *
+     * @param totalVotes
+     *            the totalVotes to set
+     */
+    public final void setTotalVotes(Integer totalVotes) {
+        this.totalVotes = totalVotes;
     }
 }

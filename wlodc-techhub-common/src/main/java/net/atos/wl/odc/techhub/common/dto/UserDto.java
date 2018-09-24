@@ -8,6 +8,8 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import net.atos.wl.odc.techhub.common.enums.UserType;
+
 /**
  * Data transfer object for user details.
  * 
@@ -33,14 +35,17 @@ public class UserDto implements Serializable {
     @JsonProperty("lastName")
     private String lastName;
 
-    @JsonProperty("location")
-    private String location;
-
     @JsonProperty("email")
     private String email;
 
     @JsonProperty("mobile")
     private String mobile;
+
+    @JsonProperty("location")
+    private String location;
+
+    @JsonProperty("userType")
+    private UserType userType;
 
     /**
      * Getter for id.
@@ -119,25 +124,6 @@ public class UserDto implements Serializable {
     }
 
     /**
-     * Getter for location.
-     *
-     * @return the location
-     */
-    public final String getLocation() {
-        return location;
-    }
-
-    /**
-     * Setter for location.
-     *
-     * @param location
-     *            the location to set
-     */
-    public final void setLocation(String location) {
-        this.location = location;
-    }
-
-    /**
      * Getter for email.
      *
      * @return the email
@@ -175,4 +161,41 @@ public class UserDto implements Serializable {
         this.mobile = mobile;
     }
 
+    /**
+     * Getter for location.
+     *
+     * @return the location
+     */
+    public final String getLocation() {
+        return location;
+    }
+
+    /**
+     * Setter for location.
+     *
+     * @param location
+     *            the location to set
+     */
+    public final void setLocation(String location) {
+        this.location = location;
+    }
+
+    /**
+     * Getter for userType.
+     *
+     * @return the userType
+     */
+    public final UserType getUserType() {
+        return userType;
+    }
+
+    /**
+     * Setter for userType.
+     *
+     * @param userType
+     *            the userType to set
+     */
+    public final void setUserType(UserType userType) {
+        this.userType = userType;
+    }
 }

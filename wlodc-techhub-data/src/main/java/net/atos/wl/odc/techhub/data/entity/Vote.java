@@ -41,6 +41,9 @@ public class Vote extends AuditableEntity {
     @ManyToOne
     private Topic topic;
 
+    @ManyToOne
+    private Poster poster;
+
     /**
      * Getter for voteType.
      *
@@ -97,4 +100,24 @@ public class Vote extends AuditableEntity {
     public void setTopic(Topic topic) {
         this.topic = topic;
     }
+
+    /**
+     * Getter for poster.
+     *
+     * @return the poster
+     */
+    public final Poster getPoster() {
+        return poster;
+    }
+
+    /**
+     * Setter for poster.
+     *
+     * @param poster
+     *            the poster to set
+     */
+    public final void setPoster(Poster poster) {
+        this.poster = poster;
+    }
+
 }

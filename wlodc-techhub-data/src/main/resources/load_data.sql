@@ -2,6 +2,7 @@ DELETE FROM `wlodc_techhub`.`topic_presenter_table`;
 DELETE FROM `wlodc_techhub`.`topic`;
 DELETE FROM `wlodc_techhub`.`presenter`;
 DELETE FROM `wlodc_techhub`.`white_list_user`;
+DELETE FROM `wlodc_techhub`.`poster`;
 
 INSERT INTO `wlodc_techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Opening Key Notes', 'topiclogo', 'Opening Key Notes', 'PN_TR01', '11:00 To 11:15');
 INSERT INTO `wlodc_techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Evidence Based Management', 'topiclogo', 'Evidence Based Management', 'PN_TR01', '11:15 To 12:15');
@@ -55,3 +56,12 @@ INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A558025');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A506970');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A502903');
+
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146737065-f68a8d29-b7e7-4a53-a84c-54a0fd53691d', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146597554-c2527572-95a2-4286-bb1e-35a575fcde67', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146469842-9fdca013-ae62-409e-96e5-ca519d97f89f', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146798663-b66dcdaf-b063-432e-9c4d-6d1a7d10848a', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146700177-a72a5414-9c41-4f79-8e7a-5ea46158f81e', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146666466-d0cecadb-2800-4fb9-9ae0-4e8518442b3a', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146641513-99220e82-ad2b-4f7f-b5f8-d365bbb60a65', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146548353-c6148a3b-9a39-4e30-a21f-45c1a0d6e054', 'Unknown');

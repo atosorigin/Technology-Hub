@@ -13,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
@@ -37,6 +39,7 @@ public class Attendance extends AuditableEntity {
     private RoomNumber roomNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private User user;
 
     /**

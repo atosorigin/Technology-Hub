@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.atos.wl.odc.techhub.common.dto.UserDto;
+import net.atos.wl.odc.techhub.common.enums.UserType;
 
 /**
  * LDAP Service to make LDAP look-up.
@@ -68,6 +69,7 @@ public class LdapService {
                 return userDto;
             } else {
                 userDto = this.getUserDetailFromLdap(context, userId);
+                userDto.setUserType(UserType.USER);
                 return this.getUserService().create(userDto);
             }
         } catch (final Exception e) {

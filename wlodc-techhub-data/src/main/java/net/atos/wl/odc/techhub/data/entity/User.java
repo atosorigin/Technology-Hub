@@ -8,12 +8,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import net.atos.wl.odc.techhub.common.enums.UserType;
 
 /**
  * JPA Entity representing the presenter information.
@@ -50,6 +54,10 @@ public class User extends AuditableEntity {
     @Column(name = "location", nullable = false)
     private String location;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_type", nullable = false)
+    private UserType userType;
+
     @ManyToMany(mappedBy = "users")
     @JsonBackReference
     private List<Topic> topics = new ArrayList<Topic>();
@@ -59,7 +67,7 @@ public class User extends AuditableEntity {
      *
      * @return the userId
      */
-    public String getUserId() {
+    public final String getUserId() {
         return userId;
     }
 
@@ -69,7 +77,7 @@ public class User extends AuditableEntity {
      * @param userId
      *            the userId to set
      */
-    public void setUserId(String userId) {
+    public final void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -78,7 +86,7 @@ public class User extends AuditableEntity {
      *
      * @return the firstName
      */
-    public String getFirstName() {
+    public final String getFirstName() {
         return firstName;
     }
 
@@ -88,7 +96,7 @@ public class User extends AuditableEntity {
      * @param firstName
      *            the firstName to set
      */
-    public void setFirstName(String firstName) {
+    public final void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -97,7 +105,7 @@ public class User extends AuditableEntity {
      *
      * @return the lastName
      */
-    public String getLastName() {
+    public final String getLastName() {
         return lastName;
     }
 
@@ -107,7 +115,7 @@ public class User extends AuditableEntity {
      * @param lastName
      *            the lastName to set
      */
-    public void setLastName(String lastName) {
+    public final void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -116,7 +124,7 @@ public class User extends AuditableEntity {
      *
      * @return the mobile
      */
-    public String getMobile() {
+    public final String getMobile() {
         return mobile;
     }
 
@@ -126,7 +134,7 @@ public class User extends AuditableEntity {
      * @param mobile
      *            the mobile to set
      */
-    public void setMobile(String mobile) {
+    public final void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -135,7 +143,7 @@ public class User extends AuditableEntity {
      *
      * @return the email
      */
-    public String getEmail() {
+    public final String getEmail() {
         return email;
     }
 
@@ -145,7 +153,7 @@ public class User extends AuditableEntity {
      * @param email
      *            the email to set
      */
-    public void setEmail(String email) {
+    public final void setEmail(String email) {
         this.email = email;
     }
 
@@ -154,7 +162,7 @@ public class User extends AuditableEntity {
      *
      * @return the location
      */
-    public String getLocation() {
+    public final String getLocation() {
         return location;
     }
 
@@ -164,8 +172,27 @@ public class User extends AuditableEntity {
      * @param location
      *            the location to set
      */
-    public void setLocation(String location) {
+    public final void setLocation(String location) {
         this.location = location;
+    }
+
+    /**
+     * Getter for userType.
+     *
+     * @return the userType
+     */
+    public final UserType getUserType() {
+        return userType;
+    }
+
+    /**
+     * Setter for userType.
+     *
+     * @param userType
+     *            the userType to set
+     */
+    public final void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     /**
@@ -173,7 +200,7 @@ public class User extends AuditableEntity {
      *
      * @return the topics
      */
-    public List<Topic> getTopics() {
+    public final List<Topic> getTopics() {
         return topics;
     }
 
@@ -183,7 +210,8 @@ public class User extends AuditableEntity {
      * @param topics
      *            the topics to set
      */
-    public void setTopics(List<Topic> topics) {
+    public final void setTopics(List<Topic> topics) {
         this.topics = topics;
     }
+
 }
