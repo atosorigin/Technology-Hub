@@ -190,7 +190,7 @@ public class TopicServiceImpl implements TopicService {
      */
     @Override
     public void unRegisterUserFromTopic(String userId, Integer topicId) {
-        this.unRegisterUserFromTopic(userId, topicId);
+        this.getTopicDAO().unRegisterUserFromTopic(userId, topicId);
     }
 
     /**

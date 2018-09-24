@@ -44,6 +44,9 @@ public class Vote extends AuditableEntity {
     @ManyToOne
     private Poster poster;
 
+    @ManyToOne
+    private Video video;
+
     /**
      * Getter for voteType.
      *
@@ -118,6 +121,25 @@ public class Vote extends AuditableEntity {
      */
     public final void setPoster(Poster poster) {
         this.poster = poster;
+    }
+
+    /**
+     * Getter for video.
+     *
+     * @return the video
+     */
+    public final Video getVideo() {
+        return video;
+    }
+
+    /**
+     * Setter for video.
+     *
+     * @param video
+     *            the video to set
+     */
+    public final void setVideo(Video video) {
+        this.video = video;
     }
 
 }

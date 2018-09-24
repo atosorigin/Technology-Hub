@@ -3,12 +3,16 @@
  */
 package net.atos.wl.odc.techhub.business.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
+import net.atos.wl.odc.techhub.common.dto.VoteStatsDto;
+import net.atos.wl.odc.techhub.common.enums.VotingType;
 import net.atos.wl.odc.techhub.data.dao.VoteDAO;
 
 /**
@@ -35,6 +39,17 @@ public class VoteServiceImpl implements VoteService {
         this.getVoteDAO().postUserVote(voteDto);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atos.wl.odc.techhub.business.service.VoteService#
+     * getVoteStatsByVoteType(net.atos.wl.odc.techhub.common.enums.VotingType)
+     */
+    @Override
+    public List<VoteStatsDto> getVoteStatsByVoteType(VotingType votingType) {
+        return this.getVoteDAO().getVoteStatsByVoteType(votingType);
+    }
+
     /**
      * Getter for voteDAO.
      *
@@ -53,5 +68,4 @@ public class VoteServiceImpl implements VoteService {
     public final void setVoteDAO(VoteDAO voteDAO) {
         this.voteDAO = voteDAO;
     }
-
 }

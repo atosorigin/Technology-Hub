@@ -27,6 +27,9 @@ public class VoteStatsDto implements Serializable {
     @JsonProperty("posterId")
     private Integer posterId;
 
+    @JsonProperty("videoId")
+    private Integer videoId;
+
     @JsonProperty("voteType")
     private VotingType voteType;
 
@@ -69,6 +72,25 @@ public class VoteStatsDto implements Serializable {
      */
     public final void setPosterId(Integer posterId) {
         this.posterId = posterId;
+    }
+
+    /**
+     * Getter for videoId.
+     *
+     * @return the videoId
+     */
+    public final Integer getVideoId() {
+        return videoId;
+    }
+
+    /**
+     * Setter for videoId.
+     *
+     * @param videoId
+     *            the videoId to set
+     */
+    public final void setVideoId(Integer videoId) {
+        this.videoId = videoId;
     }
 
     /**

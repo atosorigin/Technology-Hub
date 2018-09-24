@@ -15,8 +15,6 @@ import org.springframework.util.CollectionUtils;
 import net.atos.wl.odc.techhub.common.dto.VoteDto;
 import net.atos.wl.odc.techhub.common.dto.VoteStatsDto;
 import net.atos.wl.odc.techhub.common.enums.VotingType;
-import net.atos.wl.odc.techhub.data.entity.Poster;
-import net.atos.wl.odc.techhub.data.entity.Topic;
 import net.atos.wl.odc.techhub.data.entity.User;
 import net.atos.wl.odc.techhub.data.entity.Vote;
 
@@ -37,6 +35,9 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
     @Autowired
     private PosterDAO posterDAO;
 
+    @Autowired
+    private VideoDAO videoDAO;
+
     /*
      * (non-Javadoc)
      * 
@@ -56,11 +57,11 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
         vote.setUser(user);
 
         if (voteDto.getTopicId() != null) {
-            final Topic topic = this.getTopicDAO().read(voteDto.getTopicId());
-            vote.setTopic(topic);
+            vote.setTopic(this.getTopicDAO().read(voteDto.getTopicId()));
         } else if (voteDto.getPosterId() != null) {
-            final Poster poster = this.getPosterDAO().read(voteDto.getPosterId());
-            vote.setPoster(poster);
+            vote.setPoster(this.getPosterDAO().read(voteDto.getPosterId()));
+        } else if (voteDto.getVideoId() != null) {
+            vote.setVideo(this.getVideoDAO().read(voteDto.getVideoId()));
         }
 
         this.persistOrMerge(vote);
@@ -75,28 +76,38 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List<VoteStatsDto> getVoteStatsByVoteType(final VotingType votingType) {
-        List<Object[]> results = null;
-        if (votingType == VotingType.POSTER) {
-            final Query query = this.entityManager.createQuery(
-                            "SELECT v.poster.id AS posterId, COUNT(v) AS totalVotes FROM Vote AS v GROUP BY v.poster.id ORDER BY v.poster.id ASC WHERE v.voteType = :votingType");
-            query.setParameter("voteType", votingType);
-            results = query.getResultList();
-        } else if (votingType == VotingType.TEASER) {
-            final Query query = this.entityManager.createQuery(
-                            "SELECT v.topic.id AS topicId, COUNT(v) AS totalVotes FROM Vote AS v GROUP BY v.topic.id ORDER BY v.topic.id ASC WHERE v.voteType = :votingType");
-            query.setParameter("voteType", votingType);
-            results = query.getResultList();
+    public List<VoteStatsDto> getVoteStatsByVoteType(final VotingType voteType) {
+
+        Query query = null;
+        if (voteType == VotingType.POSTER) {
+            query = this.entityManager.createQuery(
+                            "SELECT v.poster.id AS posterId, COUNT(v) AS totalVotes FROM Vote AS v WHERE v.voteType = :voteType GROUP BY v.poster.id");
+        } else if (voteType == VotingType.TEASER) {
+            query = this.entityManager.createQuery(
+                            "SELECT v.topic.id AS topicId, COUNT(v) AS totalVotes FROM Vote AS v WHERE v.voteType = :voteType GROUP BY v.topic.id");
+        } else if (voteType == VotingType.VIDEO) {
+            query = this.entityManager.createQuery(
+                            "SELECT v.video.id AS videoId, COUNT(v) AS totalVotes FROM Vote AS v WHERE v.voteType = :voteType GROUP BY v.video.id");
         }
 
-        final List<VoteStatsDto> votesStat = new ArrayList<>();
-        for (final Object[] result : results) {
-            final VoteStatsDto voteStatsDto = new VoteStatsDto();
-            voteStatsDto.setTopicId((Integer) result[0]);
-            voteStatsDto.setTotalVotes(((Number) result[1]).intValue());
-            votesStat.add(voteStatsDto);
+        final List<VoteStatsDto> votesStats = new ArrayList<>();
+        if (query != null) {
+            query.setParameter("voteType", voteType);
+            final List<Object[]> results = query.getResultList();
+            for (final Object[] result : results) {
+                final VoteStatsDto voteStatsDto = new VoteStatsDto();
+                if (voteType == VotingType.POSTER) {
+                    voteStatsDto.setPosterId((Integer) result[0]);
+                } else if (voteType == VotingType.TEASER) {
+                    voteStatsDto.setTopicId((Integer) result[0]);
+                } else if (voteType == VotingType.VIDEO) {
+                    voteStatsDto.setVideoId((Integer) result[0]);
+                }
+                voteStatsDto.setTotalVotes(((Number) result[1]).intValue());
+                votesStats.add(voteStatsDto);
+            }
         }
-        return votesStat;
+        return votesStats;
     }
 
     /**
@@ -178,4 +189,22 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
         this.posterDAO = posterDAO;
     }
 
+    /**
+     * Getter for videoDAO.
+     *
+     * @return the videoDAO
+     */
+    public final VideoDAO getVideoDAO() {
+        return videoDAO;
+    }
+
+    /**
+     * Setter for videoDAO.
+     *
+     * @param videoDAO
+     *            the videoDAO to set
+     */
+    public final void setVideoDAO(VideoDAO videoDAO) {
+        this.videoDAO = videoDAO;
+    }
 }

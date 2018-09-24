@@ -27,10 +27,10 @@ public interface VoteDAO {
     /**
      * Method to get latest vote statistics for the given voting type.
      * 
-     * @param votingType
+     * @param voteType
      *            <code>net.atos.wl.odc.techhub.common.enums.VotingType</code>.
      * @return List of
      *         <code>net.atos.wl.odc.techhub.common.dto.VoteStatsDto</code>.
      */
-    List<VoteStatsDto> getVoteStatsByVoteType(final VotingType votingType);
+    List<VoteStatsDto> getVoteStatsByVoteType(final VotingType voteType);
 }
