@@ -23,6 +23,9 @@ public class PosterDto {
     @JsonProperty("participants")
     private String participants;
 
+    @JsonProperty("url")
+    private String url;
+
     /**
      * Getter for id.
      *
@@ -80,4 +83,22 @@ public class PosterDto {
         this.participants = participants;
     }
 
+    /**
+     * Getter for url.
+     *
+     * @return the url
+     */
+    public final String getUrl() {
+        return url;
+    }
+
+    /**
+     * Setter for url.
+     *
+     * @param url
+     *            the url to set
+     */
+    public final void setUrl(String url) {
+        this.url = url;
+    }
 }

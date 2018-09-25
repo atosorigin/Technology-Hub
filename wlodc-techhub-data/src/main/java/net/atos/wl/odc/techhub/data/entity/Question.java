@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.atos.wl.odc.techhub.common.enums.AnswerType;
 import net.atos.wl.odc.techhub.common.enums.QuestionType;
 
 /**
@@ -44,11 +45,15 @@ public class Question extends PersistableEntity {
     private String description;
 
     @Column(name = "correct_option", nullable = true)
-    private short correctOption;
+    private Integer correctOption;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "question_type", nullable = false)
     private QuestionType questionType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "answer_type", nullable = false)
+    private AnswerType answerType;
 
     @OneToMany(mappedBy = "question", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Choice> choices = new ArrayList<Choice>();
@@ -99,7 +104,7 @@ public class Question extends PersistableEntity {
      *
      * @return the correctOption
      */
-    public short getCorrectOption() {
+    public final Integer getCorrectOption() {
         return correctOption;
     }
 
@@ -109,7 +114,7 @@ public class Question extends PersistableEntity {
      * @param correctOption
      *            the correctOption to set
      */
-    public void setCorrectOption(short correctOption) {
+    public final void setCorrectOption(Integer correctOption) {
         this.correctOption = correctOption;
     }
 
@@ -130,6 +135,25 @@ public class Question extends PersistableEntity {
      */
     public void setQuestionType(QuestionType questionType) {
         this.questionType = questionType;
+    }
+
+    /**
+     * Getter for answerType.
+     *
+     * @return the answerType
+     */
+    public final AnswerType getAnswerType() {
+        return answerType;
+    }
+
+    /**
+     * Setter for answerType.
+     *
+     * @param answerType
+     *            the answerType to set
+     */
+    public final void setAnswerType(AnswerType answerType) {
+        this.answerType = answerType;
     }
 
     /**

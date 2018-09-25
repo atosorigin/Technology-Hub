@@ -3,6 +3,7 @@
  */
 package net.atos.wl.odc.techhub.data.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -25,6 +26,9 @@ public class Feedback extends AuditableEntity {
      */
     private static final long serialVersionUID = 1937708998850202227L;
 
+    @Column(name = "text")
+    private String text;
+
     @ManyToOne
     private User user;
 
@@ -33,6 +37,25 @@ public class Feedback extends AuditableEntity {
 
     @ManyToOne
     private Choice choice;
+
+    /**
+     * Getter for text.
+     *
+     * @return the text
+     */
+    public final String getText() {
+        return text;
+    }
+
+    /**
+     * Setter for text.
+     *
+     * @param text
+     *            the text to set
+     */
+    public final void setText(String text) {
+        this.text = text;
+    }
 
     /**
      * Getter for user.

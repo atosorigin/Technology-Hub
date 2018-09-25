@@ -27,6 +27,9 @@ public class Poster extends PersistableEntity {
     @Column(name = "participants", nullable = false)
     private String participants;
 
+    @Column(name = "url", nullable = false)
+    private String url;
+
     /**
      * Getter for name.
      *
@@ -63,6 +66,25 @@ public class Poster extends PersistableEntity {
      */
     public final void setParticipants(String participants) {
         this.participants = participants;
+    }
+
+    /**
+     * Getter for url.
+     *
+     * @return the url
+     */
+    public final String getUrl() {
+        return url;
+    }
+
+    /**
+     * Setter for url.
+     *
+     * @param url
+     *            the url to set
+     */
+    public final void setUrl(String url) {
+        this.url = url;
     }
 
 }

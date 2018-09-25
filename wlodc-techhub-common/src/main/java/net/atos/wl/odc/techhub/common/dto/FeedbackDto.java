@@ -24,6 +24,9 @@ public class FeedbackDto implements Serializable {
     @JsonProperty("id")
     private Integer id;
 
+    @JsonProperty("text")
+    private String text;
+
     @JsonProperty("userId")
     private String userId;
 
@@ -50,6 +53,25 @@ public class FeedbackDto implements Serializable {
      */
     public final void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * Getter for text.
+     *
+     * @return the text
+     */
+    public final String getText() {
+        return text;
+    }
+
+    /**
+     * Setter for text.
+     *
+     * @param text
+     *            the text to set
+     */
+    public final void setText(String text) {
+        this.text = text;
     }
 
     /**

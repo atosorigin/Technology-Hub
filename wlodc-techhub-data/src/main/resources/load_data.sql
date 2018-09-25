@@ -3,6 +3,8 @@ DELETE FROM `wlodc_techhub`.`topic`;
 DELETE FROM `wlodc_techhub`.`presenter`;
 DELETE FROM `wlodc_techhub`.`white_list_user`;
 DELETE FROM `wlodc_techhub`.`poster`;
+DELETE FROM `wlodc_techhub`.`choice`;
+DELETE FROM `wlodc_techhub`.`question`;
 
 INSERT INTO `wlodc_techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Opening Key Notes', 'topiclogo', 'Opening Key Notes', 'PN_TR01', '11:00 To 11:15');
 INSERT INTO `wlodc_techhub`.`topic` (`record_state`, `version`, `description`, `image_url`, `name`, `room_number`, `time_slot`) VALUES ('ACTIVE', '0', 'Evidence Based Management', 'topiclogo', 'Evidence Based Management', 'PN_TR01', '11:15 To 12:15');
@@ -155,11 +157,35 @@ INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A676491');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A682255');
 
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile in nutshell', 'Arihant Jain, Prathama Morye, Mahesh Mandlik, Anjali Chachlani');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile League Atos', 'Mangesh Kumbhar, Shraddha, Pooja, Mangesh Ghodake');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Its Agile', 'Komal Sarode');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Building Home in Agile way', 'Priyanka C, Mrunal K, Charu M, Laxman M');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'AGILE', 'Vasudha Chaudhari, Sneha Thatte, Amit Makhija, Swapnil Gadekar');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile in T-20', 'Tahir Dange, Satendra Singh, Aishwarya K, Komal Laddha');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Scrum Agile', 'Prakash M, Vinayak B, Om G');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile Bahubali', 'Pratigyan, Monika, Ishita, Siddharth');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile in nutshell', 'Arihant Jain, Prathama Morye, Mahesh Mandlik, Anjali Chachlani','../../assets/imgs/posters/1536146666466-d0cecadb-2800-4fb9-9ae0-4e8518442b3a.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile League Atos', 'Mangesh Kumbhar, Shraddha, Pooja, Mangesh Ghodake','../../assets/imgs/posters/1536146641513-99220e82-ad2b-4f7f-b5f8-d365bbb60a65.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Its Agile', 'Komal Sarode','../../assets/imgs/posters/1536146597554-c2527572-95a2-4286-bb1e-35a575fcde67.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Building Home in Agile way', 'Priyanka C, Mrunal K, Charu M, Laxman M','../../assets/imgs/posters/1536146548353-c6148a3b-9a39-4e30-a21f-45c1a0d6e054.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'AGILE', 'Vasudha Chaudhari, Sneha Thatte, Amit Makhija, Swapnil Gadekar','../../assets/imgs/posters/1536146469842-9fdca013-ae62-409e-96e5-ca519d97f89f.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile in T-20', 'Tahir Dange, Satendra Singh, Aishwarya K, Komal Laddha','../../assets/imgs/posters/1536146737065-f68a8d29-b7e7-4a53-a84c-54a0fd53691d.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Scrum Agile', 'Prakash M, Vinayak B, Om G','../../assets/imgs/posters/1536146700177-a72a5414-9c41-4f79-8e7a-5ea46158f81e.jpg');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile Bahubali', 'Pratigyan, Monika, Ishita, Siddharth','../../assets/imgs/posters/1536146798663-b66dcdaf-b063-432e-9c4d-6d1a7d10848a.jpg');
+
+INSERT INTO `wlodc_techhub`.`question` (`record_state`, `version`, `number`, `description`, `question_type`, `answer_type`) VALUES ('ACTIVE', '0', 1, 'How relevant were the topics for the event?', 'FEEDBACK', 'SINGLE_CHOICE');
+INSERT INTO `wlodc_techhub`.`question` (`record_state`, `version`, `number`, `description`, `question_type`, `answer_type`) VALUES ('ACTIVE', '0', 2, 'Do you think the learning from this event will be useful to you?', 'FEEDBACK', 'SINGLE_CHOICE');
+INSERT INTO `wlodc_techhub`.`question` (`record_state`, `version`, `number`, `description`, `question_type`, `answer_type`) VALUES ('ACTIVE', '0', 3, 'How well was the event organized?', 'FEEDBACK', 'SINGLE_CHOICE');
+INSERT INTO `wlodc_techhub`.`question` (`record_state`, `version`, `number`, `description`, `question_type`, `answer_type`) VALUES ('ACTIVE', '0', 4, 'Give any suggestions / feedback', 'FEEDBACK', 'LONG_TEXT');
+INSERT INTO `wlodc_techhub`.`question` (`record_state`, `version`, `number`, `description`, `question_type`, `answer_type`) VALUES ('ACTIVE', '0', 5, 'Overall rating (scale 1 to 5, with 5 being maximum)', 'FEEDBACK', 'SINGLE_SELECT');
+
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 1, 'All topics were relevant', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=1));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 2, 'Most topics were relevant', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=1));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 3, 'Most topics were NOT relevant', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=1));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 4, 'No relevance at all', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=1));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 1, 'Very much', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=2));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 2, 'Yes', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=2));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 3, 'To a small extent', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=2));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 4, 'Not at all', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=2));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 1, 'Excellently organized', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=3));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 2, 'Overall ok', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=3));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 3, 'Overall not so good', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=3));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 4, 'Completely unorganized', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=3));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 1, 'Rating - 1', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=5));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 2, 'Rating - 2', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=5));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 3, 'Rating - 3', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=5));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 4, 'Rating - 4', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=5));
+INSERT INTO `wlodc_techhub`.`choice` (`record_state`, `version`, `number`, `description`, `question_id`) VALUES ('ACTIVE', '0', 5, 'Rating - 5', (SELECT id FROM `wlodc_techhub`.`question` WHERE `number`=5));

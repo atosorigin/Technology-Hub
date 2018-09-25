@@ -9,6 +9,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import net.atos.wl.odc.techhub.common.enums.AnswerType;
 import net.atos.wl.odc.techhub.common.enums.QuestionType;
 
 /**
@@ -34,10 +35,13 @@ public class QuestionDto implements Serializable {
     private String description;
 
     @JsonProperty("correctOption")
-    private short correctOption;
+    private Integer correctOption;
 
     @JsonProperty("questionType")
     private QuestionType questionType;
+
+    @JsonProperty("answerType")
+    private AnswerType answerType;
 
     private List<ChoiceDto> choices;
 
@@ -103,7 +107,7 @@ public class QuestionDto implements Serializable {
      *
      * @return the correctOption
      */
-    public final short getCorrectOption() {
+    public final Integer getCorrectOption() {
         return correctOption;
     }
 
@@ -113,7 +117,7 @@ public class QuestionDto implements Serializable {
      * @param correctOption
      *            the correctOption to set
      */
-    public final void setCorrectOption(short correctOption) {
+    public final void setCorrectOption(Integer correctOption) {
         this.correctOption = correctOption;
     }
 
@@ -134,6 +138,25 @@ public class QuestionDto implements Serializable {
      */
     public final void setQuestionType(QuestionType questionType) {
         this.questionType = questionType;
+    }
+
+    /**
+     * Getter for answerType.
+     *
+     * @return the answerType
+     */
+    public final AnswerType getAnswerType() {
+        return answerType;
+    }
+
+    /**
+     * Setter for answerType.
+     *
+     * @param answerType
+     *            the answerType to set
+     */
+    public final void setAnswerType(AnswerType answerType) {
+        this.answerType = answerType;
     }
 
     /**

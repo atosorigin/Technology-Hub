@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import net.atos.wl.odc.techhub.common.dto.FeedbackDto;
+import net.atos.wl.odc.techhub.common.enums.AnswerType;
 import net.atos.wl.odc.techhub.data.entity.Choice;
 import net.atos.wl.odc.techhub.data.entity.Feedback;
 import net.atos.wl.odc.techhub.data.entity.Question;
@@ -54,11 +55,15 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
         for (final FeedbackDto feedbackDto : userFeedbacks) {
             final Feedback feedback = this.getUserFeedback(feedbackDto.getUserId(), feedbackDto.getQuestionId());
             final Question question = this.getQuestion(feedbackDto.getQuestionId());
-            final Choice choice = this.getChoice(feedbackDto.getChoiceId());
-
             feedback.setUser(user);
             feedback.setQuestion(question);
-            feedback.setChoice(choice);
+
+            if (question.getAnswerType() == AnswerType.SINGLE_CHOICE || question.getAnswerType() == AnswerType.SINGLE_SELECT) {
+                final Choice choice = this.getChoice(feedbackDto.getChoiceId());
+                feedback.setChoice(choice);
+            } else if (question.getAnswerType() == AnswerType.LONG_TEXT) {
+                feedback.setText(feedbackDto.getText());
+            }
 
             this.persistOrMerge(feedback);
         }
