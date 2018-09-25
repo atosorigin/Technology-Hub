@@ -156,6 +156,9 @@ INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A180548');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A676491');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A682255');
+INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A674648');
+INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A674554');
+INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A699131');
 
 INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile in nutshell', 'Arihant Jain, Prathama Morye, Mahesh Mandlik, Anjali Chachlani','../../assets/imgs/posters/1536146666466-d0cecadb-2800-4fb9-9ae0-4e8518442b3a.jpg');
 INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`,`url`) VALUES ('ACTIVE', '0', 'Agile League Atos', 'Mangesh Kumbhar, Shraddha, Pooja, Mangesh Ghodake','../../assets/imgs/posters/1536146641513-99220e82-ad2b-4f7f-b5f8-d365bbb60a65.jpg');
