@@ -8,8 +8,6 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
-
 /**
  * Data transfer object for attendance details.
  * 
@@ -28,9 +26,6 @@ public class AttendanceDto implements Serializable {
 
     @JsonProperty("userId")
     private String userId;
-
-    @JsonProperty("roomNumber")
-    private RoomNumber roomNumber;
 
     /**
      * Getter for id.
@@ -68,24 +63,5 @@ public class AttendanceDto implements Serializable {
      */
     public final void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    /**
-     * Getter for roomNumber.
-     *
-     * @return the roomNumber
-     */
-    public final RoomNumber getRoomNumber() {
-        return roomNumber;
-    }
-
-    /**
-     * Setter for roomNumber.
-     *
-     * @param roomNumber
-     *            the roomNumber to set
-     */
-    public final void setRoomNumber(RoomNumber roomNumber) {
-        this.roomNumber = roomNumber;
     }
 }

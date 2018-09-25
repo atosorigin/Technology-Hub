@@ -5,7 +5,6 @@ package net.atos.wl.odc.techhub.data.dao;
 
 import java.util.List;
 
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 import net.atos.wl.odc.techhub.data.entity.Attendance;
 
 /**
@@ -20,18 +19,14 @@ public interface AttendanceDAO extends GenericDAO<Attendance> {
      * 
      * @param userId
      *            String.
-     * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
      */
-    void markAttendance(final String userId, final RoomNumber roomNumber);
+    void markAttendance(final String userId);
 
     /**
-     * Method to get attendance by room number.
+     * Method to get attendance for the event.
      * 
-     * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
      * @return List of
      *         <code>net.atos.wl.odc.techhub.data.entity.Attendance</code>.
      */
-    List<Attendance> getAttendanceByRoomNumber(final RoomNumber roomNumber);
+    List<Attendance> getAttendance();
 }

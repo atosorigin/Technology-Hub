@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +22,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.AttendanceService;
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
  * Spring REST Controller for exposing Attendance APIs.
@@ -51,22 +49,22 @@ public class AttendanceController {
     public ResponseEntity<AttendanceDto> markAttendance(@RequestBody final AttendanceDto attendanceDto) {
         Preconditions.checkNotNull(attendanceDto);
         log.info("Marking attendance for user with id " + attendanceDto.getUserId());
-        this.attendanceService.markAttendance(attendanceDto.getUserId(), attendanceDto.getRoomNumber());
+        this.attendanceService.markAttendance(attendanceDto.getUserId());
         log.info("Attendance has been marked successfully.");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     /**
-     * REST service to get attendance for the given room.
+     * REST service to get attendance for the event.
      * 
      * @return ResponseEntity with attendance and HTTP status.
      */
-    @RequestMapping(value = "/api/attendance/{roomNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Get attendance by room.")
-    public ResponseEntity<List<AttendanceDto>> getAttendanceByRoomNumber(@PathVariable("roomNumber") final RoomNumber roomNumber) {
-        log.info("Getting attendance for room " + roomNumber);
-        final List<AttendanceDto> attendance = this.attendanceService.getAttendanceByRoomNumber(roomNumber);
-        log.info("Attendance for the room is " + attendance.size());
+    @RequestMapping(value = "/api/attendance", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get attendance for the event.")
+    public ResponseEntity<List<AttendanceDto>> getAttendance() {
+        log.info("Getting attendance for the event");
+        final List<AttendanceDto> attendance = this.attendanceService.getAttendance();
+        log.info("Attendance size is " + attendance.size());
         return new ResponseEntity<>(attendance, HttpStatus.OK);
     }
 }

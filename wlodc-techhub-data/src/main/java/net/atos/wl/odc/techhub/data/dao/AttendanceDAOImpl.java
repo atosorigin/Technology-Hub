@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 import net.atos.wl.odc.techhub.data.entity.Attendance;
 import net.atos.wl.odc.techhub.data.entity.User;
 
@@ -38,17 +37,16 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
      * 
      * @see
      * net.atos.wl.odc.techhub.data.dao.AttendanceDAO#markAttendance(java.lang.
-     * String, net.atos.wl.odc.techhub.common.enums.RoomNumber)
+     * String)
      */
     @Override
-    public void markAttendance(final String userId, final RoomNumber roomNumber) {
+    public void markAttendance(final String userId) {
 
         // First get the user details for which attendance is to be marked.
         final User user = this.getUserDAO().findUserByUserId(userId);
 
         // Create the attendance instance and persist the same.
-        final Attendance attendance = this.getAttendanceByUserAndRoom(userId, roomNumber);
-        attendance.setRoomNumber(roomNumber);
+        final Attendance attendance = this.getAttendanceByUser(userId);
         attendance.setUser(user);
 
         this.persistOrMerge(attendance);
@@ -57,16 +55,13 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.atos.wl.odc.techhub.data.dao.AttendanceDAO#getAttendanceByRoomNumber(
-     * net.atos.wl.odc.techhub.common.enums.RoomNumber)
+     * @see net.atos.wl.odc.techhub.data.dao.AttendanceDAO#getAttendance()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<Attendance> getAttendanceByRoomNumber(final RoomNumber roomNumber) {
+    public List<Attendance> getAttendance() {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByRoom");
-        query.setParameter("roomNumber", roomNumber);
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
         return query.getResultList();
     }
 
@@ -78,11 +73,10 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
      * @return <code>net.atos.wl.odc.techhub.data.entity.Attendance</code>.
      */
     @SuppressWarnings("unchecked")
-    private Attendance getAttendanceByUserAndRoom(final String userId, final RoomNumber roomNumber) {
+    private Attendance getAttendanceByUser(final String userId) {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUserAndRoom");
+                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
         query.setParameter("userId", userId);
-        query.setParameter("roomNumber", roomNumber);
         final List<Attendance> attendances = (List<Attendance>) query.getResultList();
         if (!CollectionUtils.isEmpty(attendances)) {
             return attendances.get(0);

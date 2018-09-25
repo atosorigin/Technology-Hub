@@ -74,7 +74,7 @@ public class AuthController {
             if (user != null) {
                 return new ResponseEntity<>(user, HttpStatus.OK);
             } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
         } catch (Exception e) {
             log.error("", e);

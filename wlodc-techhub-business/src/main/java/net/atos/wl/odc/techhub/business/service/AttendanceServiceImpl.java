@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import net.atos.wl.odc.techhub.business.mapper.ObjectMapper;
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 import net.atos.wl.odc.techhub.data.dao.AttendanceDAO;
 import net.atos.wl.odc.techhub.data.entity.Attendance;
 
@@ -44,11 +43,11 @@ public class AttendanceServiceImpl implements AttendanceService {
      * 
      * @see
      * net.atos.wl.odc.techhub.business.service.AttendanceService#markAttendance
-     * (java.lang.String, net.atos.wl.odc.techhub.common.enums.RoomNumber)
+     * (java.lang.String)
      */
     @Override
-    public void markAttendance(final String userId, final RoomNumber roomNumber) {
-        this.getAttendanceDAO().markAttendance(userId, roomNumber);
+    public void markAttendance(final String userId) {
+        this.getAttendanceDAO().markAttendance(userId);
     }
 
     /*
@@ -59,10 +58,10 @@ public class AttendanceServiceImpl implements AttendanceService {
      * RoomNumber)
      */
     @Override
-    public List<AttendanceDto> getAttendanceByRoomNumber(final RoomNumber roomNumber) {
+    public List<AttendanceDto> getAttendance() {
 
         // First fetch all attendances by invoking DAO.
-        final List<Attendance> attendances = this.getAttendanceDAO().getAttendanceByRoomNumber(roomNumber);
+        final List<Attendance> attendances = this.getAttendanceDAO().getAttendance();
 
         // If attendances are found them iterate through the list and map all
         // entities to AttendanceDto.

@@ -6,7 +6,6 @@ package net.atos.wl.odc.techhub.business.service;
 import java.util.List;
 
 import net.atos.wl.odc.techhub.common.dto.AttendanceDto;
-import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 
 /**
  * Attendance Service.
@@ -16,22 +15,18 @@ import net.atos.wl.odc.techhub.common.enums.RoomNumber;
 public interface AttendanceService {
 
     /**
-     * Method to mark the attendance for the given user and room.
+     * Method to mark the attendance for the given user.
      * 
      * @param userId
      *            String.
-     * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
      */
-    void markAttendance(final String userId, final RoomNumber roomNumber);
+    void markAttendance(final String userId);
 
     /**
-     * Method to get attendance by room number.
+     * Method to get attendance for the event.
      * 
-     * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
      * @return List of
      *         <code>net.atos.wl.odc.techhub.common.dto.AttendanceDto</code>.
      */
-    List<AttendanceDto> getAttendanceByRoomNumber(final RoomNumber roomNumber);
+    List<AttendanceDto> getAttendance();
 }
