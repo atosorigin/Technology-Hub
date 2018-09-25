@@ -296,6 +296,11 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5.jar" sourcepath="M2_REPO/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
   <classpathentry kind="src" path="/wlodc-techhub-data"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jdbc/5.0.8.RELEASE/spring-jdbc-5.0.8.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-jdbc/5.0.8.RELEASE/spring-jdbc-5.0.8.RELEASE-sources.jar">
     <attributes>

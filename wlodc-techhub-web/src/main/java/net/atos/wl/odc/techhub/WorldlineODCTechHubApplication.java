@@ -18,6 +18,7 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 
+import net.atos.wl.odc.techhub.web.filter.AccessTokenValidationFilter;
 import net.atos.wl.odc.techhub.web.viewResolver.ExcelViewResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -128,6 +129,20 @@ public class WorldlineODCTechHubApplication {
     @Bean(name = "excelView")
     public ViewResolver excelViewResolver() {
         return new ExcelViewResolver();
+    }
+
+    /**
+     * Method to create a filter registration bean to register the access token
+     * filter.
+     * 
+     * @return <code>org.springframework.boot.web.servlet.FilterRegistrationBean</code>.
+     */
+    @Bean
+    public FilterRegistrationBean<AccessTokenValidationFilter> accessTokenFilter() {
+        final FilterRegistrationBean<AccessTokenValidationFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new AccessTokenValidationFilter());
+        registrationBean.addUrlPatterns("/api/*");
+        return registrationBean;
     }
 
     /**

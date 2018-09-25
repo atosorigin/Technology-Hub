@@ -74,6 +74,11 @@
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5.jar" sourcepath="M2_REPO/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/a120065/.m2/repository/net/sf/ehcache/ehcache/2.10.5/ehcache-2.10.5-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar" sourcepath="M2_REPO/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25-sources.jar">
     <attributes>
       <attribute value="jar:file:/C:/Users/a120065/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25-javadoc.jar!/" name="javadoc_location"/>

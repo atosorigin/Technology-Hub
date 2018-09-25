@@ -22,7 +22,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.atos.wl.odc.techhub.business.service.LdapService;
 import net.atos.wl.odc.techhub.business.service.UserService;
-import net.atos.wl.odc.techhub.common.dto.UserDto;
+import net.atos.wl.odc.techhub.common.dto.UserAccessToken;
 
 /**
  * Spring REST Controller for exposing user Authentication APIs.
@@ -47,11 +47,11 @@ public class AuthController {
      * 
      * @param authString
      *            String.
-     * @return ResponseEntity<UserDto>.
+     * @return ResponseEntity<UserAccessToken>.
      */
     @RequestMapping(value = "/api/auth", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Authenticate user and return user detail if user is valid.")
-    public ResponseEntity<UserDto> authenticateUser(@RequestHeader(value = "Authorization") final String authString) {
+    @ApiOperation(value = "Authenticate user and return API access token.")
+    public ResponseEntity<UserAccessToken> authenticateUser(@RequestHeader(value = "Authorization") final String authString) {
         Preconditions.checkNotNull(authString);
         try {
             // First decode the given authorization string.
@@ -70,9 +70,9 @@ public class AuthController {
             }
 
             // Authenticate user against LDAP.
-            final UserDto user = this.ldapService.authenticateUser(userId, pass);
-            if (user != null) {
-                return new ResponseEntity<>(user, HttpStatus.OK);
+            final UserAccessToken userAccessToken = this.ldapService.authenticateUser(userId, pass);
+            if (userAccessToken != null) {
+                return new ResponseEntity<>(userAccessToken, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
@@ -80,6 +80,24 @@ public class AuthController {
             log.error("", e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    /**
+     * Method to logout user.
+     * 
+     * @param userId
+     *            String.
+     * @param token
+     *            String.
+     * @return ResponseEntity<Void>
+     */
+    @RequestMapping(value = "/api/logout", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "User logout.")
+    public ResponseEntity<Void> logout(@RequestHeader(value = "X-Auth-UserId") final String userId,
+                                       @RequestHeader(value = "X-Auth-Token") final String token) {
+
+        this.ldapService.logout(userId, token);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     /**
