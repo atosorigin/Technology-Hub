@@ -155,11 +155,11 @@ INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A676491');
 INSERT INTO `wlodc_techhub`.`white_list_user` (`record_state`, `version`, `user_id`) VALUES ('ACTIVE', '0', 'A682255');
 
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146737065-f68a8d29-b7e7-4a53-a84c-54a0fd53691d', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146597554-c2527572-95a2-4286-bb1e-35a575fcde67', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146469842-9fdca013-ae62-409e-96e5-ca519d97f89f', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146798663-b66dcdaf-b063-432e-9c4d-6d1a7d10848a', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146700177-a72a5414-9c41-4f79-8e7a-5ea46158f81e', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146666466-d0cecadb-2800-4fb9-9ae0-4e8518442b3a', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146641513-99220e82-ad2b-4f7f-b5f8-d365bbb60a65', 'Unknown');
-INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', '1536146548353-c6148a3b-9a39-4e30-a21f-45c1a0d6e054', 'Unknown');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile in nutshell', 'Arihant Jain, Prathama Morye, Mahesh Mandlik, Anjali Chachlani');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile League Atos', 'Mangesh Kumbhar, Shraddha, Pooja, Mangesh Ghodake');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Its Agile', 'Komal Sarode');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Building Home in Agile way', 'Priyanka C, Mrunal K, Charu M, Laxman M');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'AGILE', 'Vasudha Chaudhari, Sneha Thatte, Amit Makhija, Swapnil Gadekar');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile in T-20', 'Tahir Dange, Satendra Singh, Aishwarya K, Komal Laddha');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Scrum Agile', 'Prakash M, Vinayak B, Om G');
+INSERT INTO `wlodc_techhub`.`poster` (`record_state`, `version`, `name`, `participants`) VALUES ('ACTIVE', '0', 'Agile Bahubali', 'Pratigyan, Monika, Ishita, Siddharth');
