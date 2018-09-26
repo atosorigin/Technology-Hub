@@ -55,7 +55,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @ImportResource({"classpath*:wlodc-techhub-web.xml"})
-public class WorldlineODCTechHubApplication {
+public class TechHubApplication {
 
     /**
      * The main method uses Spring Boots SpringApplication.run method to launch
@@ -65,7 +65,7 @@ public class WorldlineODCTechHubApplication {
      *            String[]
      */
     public static void main(final String[] args) {
-        SpringApplication.run(WorldlineODCTechHubApplication.class, args);
+        SpringApplication.run(TechHubApplication.class, args);
     }
 
     /**

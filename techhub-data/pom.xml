@@ -147,8 +147,8 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>net.atos.wl.odc</groupId>
-			<artifactId>wlodc-techhub-common</artifactId>
+			<groupId>com.techhub</groupId>
+			<artifactId>techhub-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
