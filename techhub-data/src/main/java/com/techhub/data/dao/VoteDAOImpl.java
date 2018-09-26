@@ -72,7 +72,6 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
     @SuppressWarnings("unchecked")
     @Override
     public List<VoteStatsDto> getVoteStatsByVoteType(final VotingType voteType) {
-
         Query query = null;
         if (voteType == VotingType.POSTER) {
             query = this.entityManager.createQuery(
@@ -105,6 +104,19 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
         return votesStats;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.techhub.data.dao.VoteDAO#getUserVotes(java.lang.String)
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Vote> getUserVotes(final String userId) {
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Vote.fetchVotesByUser");
+        query.setParameter("userId", userId);
+        return (List<Vote>) query.getResultList();
+    }
+
     /**
      * Method to fetch the vote record based on the user id and topic id.
      * 
@@ -116,8 +128,7 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
      */
     @SuppressWarnings("unchecked")
     private Vote getVoteByUserAndVoteType(final String userId, final VotingType votingType) {
-        final Query query =
-                        this.createNamedQuery("com.techhub.data.entity.Vote.fetchVoteByUserAndVoteType");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Vote.fetchVoteByUserAndVoteType");
         query.setParameter("userId", userId);
         query.setParameter("voteType", votingType);
         final List<Vote> votes = (List<Vote>) query.getResultList();

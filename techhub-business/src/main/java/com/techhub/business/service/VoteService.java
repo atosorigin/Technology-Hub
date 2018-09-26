@@ -28,4 +28,13 @@ public interface VoteService {
      *         <code>net.atos.wl.odc.techhub.common.dto.VoteStatsDto</code>.
      */
     List<VoteStatsDto> getVoteStatsByVoteType(final VotingType votingType);
+
+    /**
+     * Method to get all the votes posted by the given user.
+     * 
+     * @param userId
+     *            String.
+     * @return List of <code>com.techhub.common.dto.VoteDto</code>.
+     */
+    List<VoteDto> getUserVotes(final String userId);
 }

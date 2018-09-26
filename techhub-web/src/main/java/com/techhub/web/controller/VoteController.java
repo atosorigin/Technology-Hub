@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -66,5 +67,19 @@ public class VoteController {
         log.info("Getting voting stats for vote type " + voteType);
         final List<VoteStatsDto> votingStats = this.voteService.getVoteStatsByVoteType(voteType);
         return new ResponseEntity<>(votingStats, HttpStatus.OK);
+    }
+
+    /**
+     * REST service to get the votes for the user.
+     * 
+     * @return ResponseEntity with headers and HTTP status.
+     */
+    @RequestMapping(value = "/api/vote", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get votes for the given user.")
+    public ResponseEntity<List<VoteDto>> getUserVotes(@RequestHeader(value = "X-Auth-UserId") final String userId) {
+        log.info("Getting user votes " + userId);
+        final List<VoteDto> votes = this.voteService.getUserVotes(userId);
+        log.info("Total votes given by user " + votes.size());
+        return new ResponseEntity<>(votes, HttpStatus.OK);
     }
 }

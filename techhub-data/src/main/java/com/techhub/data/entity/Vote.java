@@ -18,6 +18,7 @@ import com.techhub.common.enums.VotingType;
 @Entity
 @Table(name = "vote")
 @NamedQueries({
+        @NamedQuery(name = "com.techhub.data.entity.Vote.fetchVotesByUser", query = "SELECT v FROM Vote v where v.user.userId = :userId"),
         @NamedQuery(name = "com.techhub.data.entity.Vote.fetchVoteByUserAndVoteType", query = "SELECT v FROM Vote v where v.user.userId = :userId AND v.voteType = :voteType")})
 public class Vote extends AuditableEntity {
 
