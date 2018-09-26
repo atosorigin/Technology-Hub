@@ -38,7 +38,7 @@ public class Feedback extends AuditableEntity {
      *
      * @return the text
      */
-    public final String getText() {
+    public String getText() {
         return text;
     }
 
@@ -48,7 +48,7 @@ public class Feedback extends AuditableEntity {
      * @param text
      *            the text to set
      */
-    public final void setText(String text) {
+    public void setText(String text) {
         this.text = text;
     }
 
@@ -108,4 +108,5 @@ public class Feedback extends AuditableEntity {
     public void setChoice(Choice choice) {
         this.choice = choice;
     }
+
 }

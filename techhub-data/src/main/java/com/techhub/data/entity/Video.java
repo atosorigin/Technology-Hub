@@ -30,7 +30,7 @@ public class Video extends PersistableEntity {
      *
      * @return the name
      */
-    public final String getName() {
+    public String getName() {
         return name;
     }
 
@@ -40,7 +40,7 @@ public class Video extends PersistableEntity {
      * @param name
      *            the name to set
      */
-    public final void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -49,7 +49,7 @@ public class Video extends PersistableEntity {
      *
      * @return the participants
      */
-    public final String getParticipants() {
+    public String getParticipants() {
         return participants;
     }
 
@@ -59,7 +59,7 @@ public class Video extends PersistableEntity {
      * @param participants
      *            the participants to set
      */
-    public final void setParticipants(String participants) {
+    public void setParticipants(String participants) {
         this.participants = participants;
     }
 
@@ -68,7 +68,7 @@ public class Video extends PersistableEntity {
      *
      * @return the url
      */
-    public final String getUrl() {
+    public String getUrl() {
         return url;
     }
 
@@ -78,7 +78,8 @@ public class Video extends PersistableEntity {
      * @param url
      *            the url to set
      */
-    public final void setUrl(String url) {
+    public void setUrl(String url) {
         this.url = url;
     }
+
 }

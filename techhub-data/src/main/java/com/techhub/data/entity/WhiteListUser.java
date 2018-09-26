@@ -28,7 +28,7 @@ public class WhiteListUser extends PersistableEntity {
      *
      * @return the userId
      */
-    public final String getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -38,7 +38,8 @@ public class WhiteListUser extends PersistableEntity {
      * @param userId
      *            the userId to set
      */
-    public final void setUserId(String userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
+
 }
