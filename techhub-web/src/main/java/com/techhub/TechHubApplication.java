@@ -54,7 +54,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @EnableSwagger2
-@ImportResource({"classpath*:wlodc-techhub-web.xml"})
+@ImportResource({"classpath*:techhub-web.xml"})
 public class TechHubApplication {
 
     /**
@@ -98,7 +98,7 @@ public class TechHubApplication {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo()).select()
-                        .apis(RequestHandlerSelectors.basePackage("net.atos.wl.odc.techhub.web.controller"))
+                        .apis(RequestHandlerSelectors.basePackage("com.techhub.web.controller"))
                         .paths(PathSelectors.any()).build();
     }
 
