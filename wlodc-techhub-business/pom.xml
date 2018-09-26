@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>Worldline ODC Technology Hub Business Module</name>
-	<description>Worldline ODC Technology Hub Business Module</description>
-	<groupId>net.atos.wl.odc</groupId>
-	<artifactId>wlodc-techhub-business</artifactId>
+	<nameTechnology Hub Business Module</name>
+	<description>Technology Hub Business Module</description>
+	<groupId>com.techhub</groupId>
+	<artifactId>techhub-business</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -115,13 +115,13 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>net.atos.wl.odc</groupId>
-			<artifactId>wlodc-techhub-common</artifactId>
+			<groupId>com.techhub</groupId>
+			<artifactId>techhub-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>net.atos.wl.odc</groupId>
-			<artifactId>wlodc-techhub-data</artifactId>
+			<groupId>com.techhub</groupId>
+			<artifactId>techhub-data</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
