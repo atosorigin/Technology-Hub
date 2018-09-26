@@ -31,7 +31,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Entry point for the Worldline ODC Technology Hub Application.
+ * Entry point for the Technology Hub Application.
  * 
  * <p>
  * The @SpringBootApplication is a convenience annotation that adds all of the
@@ -153,9 +153,10 @@ public class TechHubApplication {
      * @return <code>springfox.documentation.service.ApiInfo</code>.
      */
     private ApiInfo getApiInfo() {
-        final Contact contact = new Contact("Worldline ODC Team", "https://worldline.com/", "rupesh.deshmukh@atos.net");
-        return new ApiInfoBuilder().title("Worldline ODC Technology Hub").description("Worldline ODC Technology Hub")
-                        .version("1.0.0").license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
-                        .contact(contact).build();
+        final Contact contact = new Contact("Rupesh Deshmukh", "https://www.linkedin.com/in/rupeshdeshmukh/",
+                        "rupesh.deshmukh@gmail.com");
+        return new ApiInfoBuilder().title("Technology Hub").description("Technology Hub").version("1.0.0")
+                        .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact)
+                        .build();
     }
 }
