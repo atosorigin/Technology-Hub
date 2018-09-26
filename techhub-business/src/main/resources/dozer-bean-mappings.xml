@@ -5,77 +5,77 @@
         http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.AttendanceDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.AttendanceDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Attendance
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Attendance
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.ChoiceDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.ChoiceDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Choice
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Choice
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.EventDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.EventDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Event
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Event
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.FeedbackDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.FeedbackDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Feedback
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Feedback
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.PresenterDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.PresenterDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Presenter
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Presenter
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.QuestionDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.QuestionDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Question
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Question
 		</class-b>
 		<field>
 			<a>choices</a>
 			<b set-method="addChoice" type="iterate">choices</b>
-			<b-hint>net.atos.wl.odc.techhub.data.entity.Choice</b-hint>
+			<b-hint>com.techhub.data.entity.Choice</b-hint>
 		</field>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.TopicDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.TopicDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Topic
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Topic
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.UserDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.UserDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.User
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.User
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.VoteDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.VoteDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.Vote
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.Vote
 		</class-b>
 	</mapping>
 
 	<mapping map-empty-string="false" map-null="false">
-		<class-a map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.common.dto.WhiteListUserDto
+		<class-a map-null="false" map-empty-string="false">com.techhub.common.dto.WhiteListUserDto
 		</class-a>
-		<class-b map-null="false" map-empty-string="false">net.atos.wl.odc.techhub.data.entity.WhiteListUser
+		<class-b map-null="false" map-empty-string="false">com.techhub.data.entity.WhiteListUser
 		</class-b>
 	</mapping>
 </mappings>
