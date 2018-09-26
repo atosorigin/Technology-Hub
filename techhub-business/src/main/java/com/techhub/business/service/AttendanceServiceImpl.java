@@ -56,7 +56,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     public List<AttendanceDto> getAttendance() {
 
         // First fetch all attendances by invoking DAO.
-        final List<Attendance> attendances = this.getAttendanceDAO().getAttendance();
+        final List<Attendance> attendances = this.getAttendanceDAO().findAll();
 
         // If attendances are found them iterate through the list and map all
         // entities to AttendanceDto.

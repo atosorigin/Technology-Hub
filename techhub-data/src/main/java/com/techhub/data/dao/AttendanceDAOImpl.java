@@ -47,19 +47,6 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
         this.persistOrMerge(attendance);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see net.atos.wl.odc.techhub.data.dao.AttendanceDAO#getAttendance()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Attendance> getAttendance() {
-        final Query query =
-                        this.createNamedQuery("com.techhub.data.entity.Attendance.fetchAttendanceByUser");
-        return query.getResultList();
-    }
-
     /**
      * Method to fetch the attendance record based on the id.
      * 
