@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.web.view;
 
 import java.util.List;
@@ -20,8 +17,6 @@ import com.techhub.web.util.ExportUtil;
 
 /**
  * Excel export view.
- * 
- * @author a120065
  */
 public class ExcelView extends AbstractXlsView {
 

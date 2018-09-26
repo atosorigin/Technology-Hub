@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.web.util;
 
 import java.io.Serializable;
@@ -21,8 +18,6 @@ import com.techhub.common.dto.UserDto;
 
 /**
  * Utility class for exporting the data in excel format.
- * 
- * @author a120065
  */
 public final class ExportUtil implements Serializable {
 

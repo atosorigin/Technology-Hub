@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import javax.persistence.Column;
@@ -9,8 +6,6 @@ import javax.persistence.Table;
 
 /**
  * JPA Entity representing the video information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "video")

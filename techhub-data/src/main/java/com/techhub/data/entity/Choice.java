@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import javax.persistence.Column;
@@ -12,8 +9,6 @@ import javax.persistence.Table;
 
 /**
  * JPA Entity representing the various options available for given question.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "choice")

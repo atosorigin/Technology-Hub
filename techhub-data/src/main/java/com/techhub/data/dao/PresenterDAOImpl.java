@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.util.List;
@@ -14,8 +11,6 @@ import com.techhub.data.entity.Presenter;
 
 /**
  * Presenter DAO Implementation.
- * 
- * @author a120065
  */
 @Repository
 public class PresenterDAOImpl extends AbstractJpaDAO<Presenter> implements PresenterDAO {

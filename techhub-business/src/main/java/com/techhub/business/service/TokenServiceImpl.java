@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.UUID;
@@ -16,8 +13,6 @@ import net.sf.ehcache.Element;
 
 /**
  * Token Service Implementation.
- * 
- * @author a120065
  */
 @Service
 public class TokenServiceImpl implements TokenService {

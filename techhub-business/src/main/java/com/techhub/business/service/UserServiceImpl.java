@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.ArrayList;
@@ -21,8 +18,6 @@ import com.techhub.data.entity.WhiteListUser;
 
 /**
  * User Service Implementation.
- * 
- * @author a120065
  */
 @Service
 @Transactional

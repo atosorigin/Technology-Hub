@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.web.filter;
 
 import java.io.IOException;
@@ -25,8 +22,6 @@ import com.techhub.business.service.TokenService;
 
 /**
  * Generic filter to validate access token passed in the header.
- * 
- * @author a120065
  */
 @Component
 @Order(1)

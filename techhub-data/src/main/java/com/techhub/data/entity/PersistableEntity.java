@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import java.io.Serializable;
@@ -18,8 +15,6 @@ import com.techhub.common.enums.State;
 
 /**
  * Abstract class with common properties for entities.
- * 
- * @author a120065
  */
 @MappedSuperclass
 public abstract class PersistableEntity implements Serializable {

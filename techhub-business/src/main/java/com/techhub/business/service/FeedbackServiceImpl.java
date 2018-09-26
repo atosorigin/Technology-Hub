@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.List;
@@ -15,8 +12,6 @@ import com.techhub.data.dao.FeedbackDAO;
 
 /**
  * Feedback Service Implementation.
- * 
- * @author a120065
  */
 @Service
 @Transactional

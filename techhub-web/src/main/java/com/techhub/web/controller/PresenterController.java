@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.web.controller;
 
 import java.util.List;
@@ -25,8 +22,6 @@ import io.swagger.annotations.Api;
 
 /**
  * Spring REST Controller for exposing Presenters APIs.
- * 
- * @author a120065
  */
 @RestController
 @Api(value = "/api/presenters", tags = "Presenters API")

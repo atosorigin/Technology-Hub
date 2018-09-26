@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.util.List;
@@ -9,8 +6,6 @@ import com.techhub.data.entity.Attendance;
 
 /**
  * Attendance DAO.
- * 
- * @author a120065
  */
 public interface AttendanceDAO extends GenericDAO<Attendance> {
 

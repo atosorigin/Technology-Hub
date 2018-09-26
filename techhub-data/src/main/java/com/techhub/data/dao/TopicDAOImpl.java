@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.util.List;
@@ -16,8 +13,6 @@ import com.techhub.data.entity.User;
 
 /**
  * Topic DAO Implementation.
- * 
- * @author a120065
  */
 @Repository
 public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {

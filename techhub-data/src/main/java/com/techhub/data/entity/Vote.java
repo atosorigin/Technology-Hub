@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import javax.persistence.Column;
@@ -17,8 +14,6 @@ import com.techhub.common.enums.VotingType;
 
 /**
  * JPA Entity representing the voting information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "vote")

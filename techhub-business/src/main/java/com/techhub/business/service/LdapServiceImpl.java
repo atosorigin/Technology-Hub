@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.Base64;
@@ -23,8 +20,6 @@ import com.techhub.common.enums.UserType;
 
 /**
  * LDAP Service to make LDAP look-up.
- * 
- * @author a120065
  */
 @Service
 public class LdapServiceImpl implements LdapService {

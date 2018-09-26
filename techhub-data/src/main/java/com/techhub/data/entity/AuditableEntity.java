@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import java.util.Date;
@@ -15,8 +12,6 @@ import com.techhub.data.listener.AuditEntityListener;
 
 /**
  * Abstract class to provide entity with properties used for auditing.
- * 
- * @author a120065
  */
 @MappedSuperclass
 @EntityListeners(value = {AuditEntityListener.class})

@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2016 Worldline UK&I.
- */
 package com.techhub.business.mapper;
 
 import org.dozer.DozerBeanMapper;
@@ -9,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * Dozer object mapper for mapping DTO to entity and vice versa.
- * 
- * @author a120065
  */
 @Component
 public class ObjectMapper {

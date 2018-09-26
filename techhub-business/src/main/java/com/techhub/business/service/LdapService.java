@@ -1,14 +1,9 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import com.techhub.common.dto.UserAccessToken;
 
 /**
  * LDAP Service.
- * 
- * @author a120065
  */
 public interface LdapService {
 

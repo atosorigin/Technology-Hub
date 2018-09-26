@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2016 Worldline UK&I.
- */
 package com.techhub.data.listener;
 
 import java.util.Date;
@@ -12,8 +9,6 @@ import com.techhub.data.entity.AuditableEntity;
 
 /**
  * Entity listener for auditing entity information.
- * 
- * @author a120065
  */
 public class AuditEntityListener {
 

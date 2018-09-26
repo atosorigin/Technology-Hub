@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import java.util.ArrayList;
@@ -18,8 +15,6 @@ import javax.persistence.TemporalType;
 
 /**
  * JPA Entity representing the event information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "event")

@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub;
 
 import java.util.ArrayList;
@@ -49,8 +46,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * and services in the package, allowing it to find the controllers.</li>
  * </ul>
  * </p>
- * 
- * @author a120065
  */
 @SpringBootApplication
 @EnableSwagger2

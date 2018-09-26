@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.util.ArrayList;
@@ -20,8 +17,6 @@ import com.techhub.data.entity.Vote;
 
 /**
  * Vote DAO Implementation.
- * 
- * @author a120065
  */
 @Repository
 public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {

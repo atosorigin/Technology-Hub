@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.common.dto;
 
 import java.io.Serializable;
@@ -13,8 +10,6 @@ import com.techhub.common.enums.RoomNumber;
 
 /**
  * Data transfer object for topic details.
- * 
- * @author a120065
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TopicDto implements Serializable {

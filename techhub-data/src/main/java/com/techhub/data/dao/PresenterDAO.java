@@ -1,14 +1,9 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import com.techhub.data.entity.Presenter;
 
 /**
  * Presenter DAO.
- * 
- * @author a120065
  */
 public interface PresenterDAO extends GenericDAO<Presenter> {
 

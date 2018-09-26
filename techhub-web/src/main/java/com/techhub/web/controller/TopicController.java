@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.web.controller;
 
 import java.util.List;
@@ -27,8 +24,6 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * Spring REST Controller for exposing Topics APIs.
- * 
- * @author a120065
  */
 @RestController
 @Api(value = "/api/topics", tags = "Topics API")

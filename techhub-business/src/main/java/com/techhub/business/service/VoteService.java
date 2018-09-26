@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.List;
@@ -10,9 +7,7 @@ import com.techhub.common.dto.VoteStatsDto;
 import com.techhub.common.enums.VotingType;
 
 /**
- * Vote Service
- * 
- * @author a120065
+ * Vote Service.
  */
 public interface VoteService {
 

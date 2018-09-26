@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import javax.persistence.Entity;
@@ -14,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * JPA Entity representing the attendance information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "attendance")

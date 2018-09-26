@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.common.dto;
 
 import java.io.Serializable;
@@ -12,8 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Data transfer object for presenter details.
- * 
- * @author a120065
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PresenterDto implements Serializable {

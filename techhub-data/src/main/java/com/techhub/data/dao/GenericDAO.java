@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.io.Serializable;
@@ -11,7 +8,6 @@ import java.util.List;
  * 
  * @param <T>
  *            JPA entity.
- * @author a120065
  */
 public interface GenericDAO<T extends Serializable> {
 

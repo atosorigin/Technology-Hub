@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 import java.util.List;
@@ -9,8 +6,6 @@ import com.techhub.common.dto.QuestionDto;
 
 /**
  * Question Service.
- * 
- * @author a120065
  */
 public interface QuestionService {
 

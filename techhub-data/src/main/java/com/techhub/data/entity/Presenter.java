@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import java.util.ArrayList;
@@ -17,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * JPA Entity representing the presenter information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "presenter")

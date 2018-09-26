@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.common.dto;
 
 import java.io.Serializable;
@@ -11,8 +8,6 @@ import com.techhub.common.enums.VotingType;
 
 /**
  * Data transfer object for vote statistics.
- * 
- * @author a120065
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VoteStatsDto implements Serializable {

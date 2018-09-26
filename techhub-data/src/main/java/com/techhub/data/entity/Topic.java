@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.entity;
 
 import java.util.ArrayList;
@@ -26,8 +23,6 @@ import com.techhub.common.enums.RoomNumber;
 
 /**
  * JPA Entity representing the topic information.
- * 
- * @author a120065
  */
 @Entity
 @Table(name = "topic")

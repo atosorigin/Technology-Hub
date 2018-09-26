@@ -1,12 +1,7 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.business.service;
 
 /**
  * Token Service.
- * 
- * @author a120065
  */
 public interface TokenService {
 

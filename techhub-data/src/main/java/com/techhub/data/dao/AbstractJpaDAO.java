@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2018 Worldline ODC.
- */
 package com.techhub.data.dao;
 
 import java.util.List;
@@ -18,7 +15,6 @@ import com.techhub.data.entity.PersistableEntity;
  * 
  * @param <T>
  *            JPA Entity
- * @author a120065
  */
 public abstract class AbstractJpaDAO<T extends PersistableEntity> implements GenericDAO<T> {
 
