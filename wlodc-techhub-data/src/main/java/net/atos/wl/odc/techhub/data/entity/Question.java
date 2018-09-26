@@ -104,7 +104,7 @@ public class Question extends PersistableEntity {
      *
      * @return the correctOption
      */
-    public final Integer getCorrectOption() {
+    public Integer getCorrectOption() {
         return correctOption;
     }
 
@@ -114,7 +114,7 @@ public class Question extends PersistableEntity {
      * @param correctOption
      *            the correctOption to set
      */
-    public final void setCorrectOption(Integer correctOption) {
+    public void setCorrectOption(Integer correctOption) {
         this.correctOption = correctOption;
     }
 
@@ -142,7 +142,7 @@ public class Question extends PersistableEntity {
      *
      * @return the answerType
      */
-    public final AnswerType getAnswerType() {
+    public AnswerType getAnswerType() {
         return answerType;
     }
 
@@ -152,7 +152,7 @@ public class Question extends PersistableEntity {
      * @param answerType
      *            the answerType to set
      */
-    public final void setAnswerType(AnswerType answerType) {
+    public void setAnswerType(AnswerType answerType) {
         this.answerType = answerType;
     }
 

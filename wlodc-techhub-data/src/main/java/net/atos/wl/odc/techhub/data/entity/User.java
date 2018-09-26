@@ -67,7 +67,7 @@ public class User extends AuditableEntity {
      *
      * @return the userId
      */
-    public final String getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -77,7 +77,7 @@ public class User extends AuditableEntity {
      * @param userId
      *            the userId to set
      */
-    public final void setUserId(String userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -86,7 +86,7 @@ public class User extends AuditableEntity {
      *
      * @return the firstName
      */
-    public final String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -96,7 +96,7 @@ public class User extends AuditableEntity {
      * @param firstName
      *            the firstName to set
      */
-    public final void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -105,7 +105,7 @@ public class User extends AuditableEntity {
      *
      * @return the lastName
      */
-    public final String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -115,7 +115,7 @@ public class User extends AuditableEntity {
      * @param lastName
      *            the lastName to set
      */
-    public final void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -124,7 +124,7 @@ public class User extends AuditableEntity {
      *
      * @return the mobile
      */
-    public final String getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
@@ -134,7 +134,7 @@ public class User extends AuditableEntity {
      * @param mobile
      *            the mobile to set
      */
-    public final void setMobile(String mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -143,7 +143,7 @@ public class User extends AuditableEntity {
      *
      * @return the email
      */
-    public final String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -153,7 +153,7 @@ public class User extends AuditableEntity {
      * @param email
      *            the email to set
      */
-    public final void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -162,7 +162,7 @@ public class User extends AuditableEntity {
      *
      * @return the location
      */
-    public final String getLocation() {
+    public String getLocation() {
         return location;
     }
 
@@ -172,7 +172,7 @@ public class User extends AuditableEntity {
      * @param location
      *            the location to set
      */
-    public final void setLocation(String location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -181,7 +181,7 @@ public class User extends AuditableEntity {
      *
      * @return the userType
      */
-    public final UserType getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
@@ -191,7 +191,7 @@ public class User extends AuditableEntity {
      * @param userType
      *            the userType to set
      */
-    public final void setUserType(UserType userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
@@ -200,7 +200,7 @@ public class User extends AuditableEntity {
      *
      * @return the topics
      */
-    public final List<Topic> getTopics() {
+    public List<Topic> getTopics() {
         return topics;
     }
 
@@ -210,8 +210,7 @@ public class User extends AuditableEntity {
      * @param topics
      *            the topics to set
      */
-    public final void setTopics(List<Topic> topics) {
+    public void setTopics(List<Topic> topics) {
         this.topics = topics;
     }
-
 }

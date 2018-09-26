@@ -109,7 +109,7 @@ public class Vote extends AuditableEntity {
      *
      * @return the poster
      */
-    public final Poster getPoster() {
+    public Poster getPoster() {
         return poster;
     }
 
@@ -119,7 +119,7 @@ public class Vote extends AuditableEntity {
      * @param poster
      *            the poster to set
      */
-    public final void setPoster(Poster poster) {
+    public void setPoster(Poster poster) {
         this.poster = poster;
     }
 
@@ -128,7 +128,7 @@ public class Vote extends AuditableEntity {
      *
      * @return the video
      */
-    public final Video getVideo() {
+    public Video getVideo() {
         return video;
     }
 
@@ -138,7 +138,7 @@ public class Vote extends AuditableEntity {
      * @param video
      *            the video to set
      */
-    public final void setVideo(Video video) {
+    public void setVideo(Video video) {
         this.video = video;
     }
 
