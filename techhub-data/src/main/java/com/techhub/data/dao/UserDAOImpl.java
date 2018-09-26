@@ -32,7 +32,7 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
     @Override
     @SuppressWarnings("unchecked")
     public User findUserByUserId(final String userId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUserByUserId");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.User.fetchUserByUserId");
         query.setParameter("userId", userId);
         final List<User> users = (List<User>) query.getResultList();
         if (!CollectionUtils.isEmpty(users)) {
@@ -50,7 +50,7 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
     @Override
     @SuppressWarnings("unchecked")
     public List<User> findUsersByTopic(final Integer topicId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.User.fetchUsersByTopic");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.User.fetchUsersByTopic");
         query.setParameter("topicId", topicId);
         return query.getResultList();
     }
@@ -65,8 +65,7 @@ public class UserDAOImpl extends AbstractJpaDAO<User> implements UserDAO {
     @Override
     @SuppressWarnings("unchecked")
     public WhiteListUser findWhiteListUserByUserId(String userId) {
-        final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.WhiteListUser.fetchUserByUserId");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.WhiteListUser.fetchUserByUserId");
         query.setParameter("userId", userId);
         final List<WhiteListUser> users = (List<WhiteListUser>) query.getResultList();
         if (!CollectionUtils.isEmpty(users)) {

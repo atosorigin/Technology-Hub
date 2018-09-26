@@ -24,8 +24,8 @@ import com.techhub.common.enums.QuestionType;
 @Entity
 @Table(name = "question")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Question.fetchQuestionByTopic", query = "SELECT q FROM Topic t JOIN t.questions q where t.id = :id"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Question.fetchQuestionById", query = "SELECT q FROM Question q where q.id = :id")})
+        @NamedQuery(name = "com.techhub.data.entity.Question.fetchQuestionByTopic", query = "SELECT q FROM Topic t JOIN t.questions q where t.id = :id"),
+        @NamedQuery(name = "com.techhub.data.entity.Question.fetchQuestionById", query = "SELECT q FROM Question q where q.id = :id")})
 public class Question extends PersistableEntity {
 
     /**

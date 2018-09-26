@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "attendance")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser", query = "SELECT a FROM Attendance a WHERE a.user.userId = :userId")})
+        @NamedQuery(name = "com.techhub.data.entity.Attendance.fetchAttendanceByUser", query = "SELECT a FROM Attendance a WHERE a.user.userId = :userId")})
 public class Attendance extends AuditableEntity {
 
     /**

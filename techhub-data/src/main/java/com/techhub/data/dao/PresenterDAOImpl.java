@@ -32,8 +32,8 @@ public class PresenterDAOImpl extends AbstractJpaDAO<Presenter> implements Prese
     @Override
     @SuppressWarnings("unchecked")
     public Presenter findPresenterByUserId(final String userId) {
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Presenter.fetchPresenterByUserId");
+        final Query query =
+                        this.entityManager.createNamedQuery("com.techhub.data.entity.Presenter.fetchPresenterByUserId");
         query.setParameter("userId", userId);
         final List<Presenter> presenters = (List<Presenter>) query.getResultList();
         if (!CollectionUtils.isEmpty(presenters)) {

@@ -27,13 +27,13 @@ import com.techhub.common.enums.RoomNumber;
 @Entity
 @Table(name = "topic")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchAllTopics", query = "SELECT t FROM Topic t"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicById", query = "SELECT t FROM Topic t where t.id = :id"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByRoom", query = "SELECT t FROM Topic t where t.roomNumber = :roomNumber"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsBySlot", query = "SELECT t FROM Topic t where t.timeSlot = :timeSlot"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :presenterId"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicByIdAndUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId AND t.id = :topicId")})
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchAllTopics", query = "SELECT t FROM Topic t"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicById", query = "SELECT t FROM Topic t where t.id = :id"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsByRoom", query = "SELECT t FROM Topic t where t.roomNumber = :roomNumber"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsBySlot", query = "SELECT t FROM Topic t where t.timeSlot = :timeSlot"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsByPresenter", query = "SELECT t FROM Presenter p JOIN p.topics t where p.id = :presenterId"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsByUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId"),
+        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicByIdAndUser", query = "SELECT t FROM User u JOIN u.topics t where u.userId = :userId AND t.id = :topicId")})
 public class Topic extends PersistableEntity {
 
     /**

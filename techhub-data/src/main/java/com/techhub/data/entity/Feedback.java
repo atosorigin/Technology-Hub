@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "feedback")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Feedback.fetchFeedbackByUserAndQuestion", query = "SELECT f FROM Feedback f where f.user.userId = :userId AND f.question.id = :questionId")})
+        @NamedQuery(name = "com.techhub.data.entity.Feedback.fetchFeedbackByUserAndQuestion", query = "SELECT f FROM Feedback f where f.user.userId = :userId AND f.question.id = :questionId")})
 public class Feedback extends AuditableEntity {
 
     /**

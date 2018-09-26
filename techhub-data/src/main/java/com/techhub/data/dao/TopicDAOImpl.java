@@ -37,7 +37,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
     @SuppressWarnings("unchecked")
     @Override
     public List<Topic> findTopicsByRoomNumber(final RoomNumber roomNumber) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByRoom");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicsByRoom");
         query.setParameter("roomNumber", roomNumber);
         return query.getResultList();
     }
@@ -52,7 +52,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
     @Override
     @SuppressWarnings("unchecked")
     public List<Topic> findTopicsByTimeSlot(final String timeSlot) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsBySlot");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicsBySlot");
         query.setParameter("timeSlot", timeSlot);
         return query.getResultList();
     }
@@ -67,7 +67,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
     @Override
     @SuppressWarnings("unchecked")
     public List<Topic> findTopicsByPresenter(final Integer presenterId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByPresenter");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicsByPresenter");
         query.setParameter("presenterId", presenterId);
         return query.getResultList();
     }
@@ -82,7 +82,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
     @Override
     @SuppressWarnings("unchecked")
     public List<Topic> findTopicsByUser(final String userId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicsByUser");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicsByUser");
         query.setParameter("userId", userId);
         return query.getResultList();
     }
@@ -96,7 +96,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
      */
     @Override
     public void registerUserToTopic(final String userId, final Integer topicId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicByIdAndUser");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicByIdAndUser");
         query.setParameter("userId", userId);
         query.setParameter("topicId", topicId);
 
@@ -117,7 +117,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
      */
     @Override
     public void unRegisterUserFromTopic(final String userId, final Integer topicId) {
-        final Query query = this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Topic.fetchTopicByIdAndUser");
+        final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicByIdAndUser");
         query.setParameter("userId", userId);
         query.setParameter("topicId", topicId);
 

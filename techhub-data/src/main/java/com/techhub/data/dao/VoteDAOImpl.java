@@ -117,7 +117,7 @@ public class VoteDAOImpl extends AbstractJpaDAO<Vote> implements VoteDAO {
     @SuppressWarnings("unchecked")
     private Vote getVoteByUserAndVoteType(final String userId, final VotingType votingType) {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Vote.fetchVoteByUserAndVoteType");
+                        this.createNamedQuery("com.techhub.data.entity.Vote.fetchVoteByUserAndVoteType");
         query.setParameter("userId", userId);
         query.setParameter("voteType", votingType);
         final List<Vote> votes = (List<Vote>) query.getResultList();

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "choice")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Choice.fetchChoiceById", query = "SELECT c FROM Choice c where c.id = :id")})
+        @NamedQuery(name = "com.techhub.data.entity.Choice.fetchChoiceById", query = "SELECT c FROM Choice c where c.id = :id")})
 public class Choice extends PersistableEntity {
 
     /**

@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "presenter")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Presenter.fetchAllPresenter", query = "SELECT p FROM Presenter p"),
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.Presenter.fetchPresenterByUserId", query = "SELECT p FROM Presenter p where p.userId = :userId")})
+        @NamedQuery(name = "com.techhub.data.entity.Presenter.fetchAllPresenter", query = "SELECT p FROM Presenter p"),
+        @NamedQuery(name = "com.techhub.data.entity.Presenter.fetchPresenterByUserId", query = "SELECT p FROM Presenter p where p.userId = :userId")})
 public class Presenter extends PersistableEntity {
 
     /**

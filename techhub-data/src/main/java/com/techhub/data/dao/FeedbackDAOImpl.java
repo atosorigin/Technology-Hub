@@ -53,7 +53,8 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
             feedback.setUser(user);
             feedback.setQuestion(question);
 
-            if (question.getAnswerType() == AnswerType.SINGLE_CHOICE || question.getAnswerType() == AnswerType.SINGLE_SELECT) {
+            if (question.getAnswerType() == AnswerType.SINGLE_CHOICE
+                            || question.getAnswerType() == AnswerType.SINGLE_SELECT) {
                 final Choice choice = this.getChoice(feedbackDto.getChoiceId());
                 feedback.setChoice(choice);
             } else if (question.getAnswerType() == AnswerType.LONG_TEXT) {
@@ -76,8 +77,8 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
      */
     @SuppressWarnings("unchecked")
     private Feedback getUserFeedback(final String userId, final Integer questionId) {
-        final Query query = this.entityManager.createNamedQuery(
-                        "net.atos.wl.odc.techhub.data.entity.Feedback.fetchFeedbackByUserAndQuestion");
+        final Query query = this.entityManager
+                        .createNamedQuery("com.techhub.data.entity.Feedback.fetchFeedbackByUserAndQuestion");
         query.setParameter("userId", userId);
         query.setParameter("questionId", questionId);
 
@@ -96,8 +97,7 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
      * @return <code>net.atos.wl.odc.techhub.data.entity.Question</code>.
      */
     private Question getQuestion(final Integer questionId) {
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Question.fetchQuestionById");
+        final Query query = this.entityManager.createNamedQuery("com.techhub.data.entity.Question.fetchQuestionById");
         query.setParameter("id", questionId);
         return (Question) query.getSingleResult();
     }
@@ -110,8 +110,7 @@ public class FeedbackDAOImpl extends AbstractJpaDAO<Feedback> implements Feedbac
      * @return <code>net.atos.wl.odc.techhub.data.entity.Choice</code>.
      */
     private Choice getChoice(final Integer choiceId) {
-        final Query query = this.entityManager
-                        .createNamedQuery("net.atos.wl.odc.techhub.data.entity.Choice.fetchChoiceById");
+        final Query query = this.entityManager.createNamedQuery("com.techhub.data.entity.Choice.fetchChoiceById");
         query.setParameter("id", choiceId);
         return (Choice) query.getSingleResult();
     }

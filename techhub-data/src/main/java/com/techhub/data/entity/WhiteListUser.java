@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "white_list_user")
 @NamedQueries({
-        @NamedQuery(name = "net.atos.wl.odc.techhub.data.entity.WhiteListUser.fetchUserByUserId", query = "SELECT wlu FROM WhiteListUser wlu where wlu.userId = :userId")})
+        @NamedQuery(name = "com.techhub.data.entity.WhiteListUser.fetchUserByUserId", query = "SELECT wlu FROM WhiteListUser wlu where wlu.userId = :userId")})
 public class WhiteListUser extends PersistableEntity {
 
     /**

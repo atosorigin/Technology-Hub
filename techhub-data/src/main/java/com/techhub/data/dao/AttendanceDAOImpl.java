@@ -56,7 +56,7 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
     @SuppressWarnings("unchecked")
     public List<Attendance> getAttendance() {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
+                        this.createNamedQuery("com.techhub.data.entity.Attendance.fetchAttendanceByUser");
         return query.getResultList();
     }
 
@@ -70,7 +70,7 @@ public class AttendanceDAOImpl extends AbstractJpaDAO<Attendance> implements Att
     @SuppressWarnings("unchecked")
     private Attendance getAttendanceByUser(final String userId) {
         final Query query =
-                        this.createNamedQuery("net.atos.wl.odc.techhub.data.entity.Attendance.fetchAttendanceByUser");
+                        this.createNamedQuery("com.techhub.data.entity.Attendance.fetchAttendanceByUser");
         query.setParameter("userId", userId);
         final List<Attendance> attendances = (List<Attendance>) query.getResultList();
         if (!CollectionUtils.isEmpty(attendances)) {
