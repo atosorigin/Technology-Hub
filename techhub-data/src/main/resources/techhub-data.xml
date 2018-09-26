@@ -44,7 +44,7 @@
 
 		<!-- This makes /META-INF/persistence.xml is no longer necessary -->
 		<property name="packagesToScan"
-			value="net.atos.wl.odc.techhub.data.entity" />
+			value="com.techhub.data.entity" />
 
 		<!-- JpaVendorAdapter implementation for Hibernate EntityManager. Exposes 
 			Hibernate's persistence provider and EntityManager extension interface -->
