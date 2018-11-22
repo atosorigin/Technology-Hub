@@ -6,7 +6,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.techhub.common.enums.RoomNumber;
 
 /**
  * Data transfer object for topic details.
@@ -35,7 +34,7 @@ public class TopicDto implements Serializable {
     private String timeSlot;
 
     @JsonProperty("roomNumber")
-    private RoomNumber roomNumber;
+    private String roomNumber;
 
     @JsonManagedReference
     private List<PresenterDto> presenters;
@@ -140,7 +139,7 @@ public class TopicDto implements Serializable {
      *
      * @return the roomNumber
      */
-    public final RoomNumber getRoomNumber() {
+    public final String getRoomNumber() {
         return roomNumber;
     }
 
@@ -150,7 +149,7 @@ public class TopicDto implements Serializable {
      * @param roomNumber
      *            the roomNumber to set
      */
-    public final void setRoomNumber(RoomNumber roomNumber) {
+    public final void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 

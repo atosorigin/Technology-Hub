@@ -2,7 +2,6 @@ package com.techhub.data.dao;
 
 import java.util.List;
 
-import com.techhub.common.enums.RoomNumber;
 import com.techhub.data.entity.Topic;
 
 /**
@@ -15,10 +14,10 @@ public interface TopicDAO extends GenericDAO<Topic> {
      * identified by given room number.
      * 
      * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
+     *            String.
      * @return List of <code>net.atos.wl.odc.techhub.data.entity.Topic</code>.
      */
-    List<Topic> findTopicsByRoomNumber(final RoomNumber roomNumber);
+    List<Topic> findTopicsByRoomNumber(final String roomNumber);
 
     /**
      * Method to find topics that will be presented within given time slot.

@@ -11,7 +11,6 @@ import org.springframework.util.CollectionUtils;
 
 import com.techhub.business.mapper.ObjectMapper;
 import com.techhub.common.dto.TopicDto;
-import com.techhub.common.enums.RoomNumber;
 import com.techhub.data.dao.TopicDAO;
 import com.techhub.data.entity.Topic;
 
@@ -127,7 +126,7 @@ public class TopicServiceImpl implements TopicService {
      * findTopicsByRoomNumber(net.atos.wl.odc.techhub.common.enums.RoomNumber)
      */
     @Override
-    public List<TopicDto> findTopicsByRoomNumber(final RoomNumber roomNumber) {
+    public List<TopicDto> findTopicsByRoomNumber(final String roomNumber) {
         return this.mapTopicsEntityToDto(this.getTopicDAO().findTopicsByRoomNumber(roomNumber));
     }
 

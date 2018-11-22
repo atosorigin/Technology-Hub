@@ -7,7 +7,6 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.techhub.common.enums.RoomNumber;
 import com.techhub.data.entity.Topic;
 import com.techhub.data.entity.User;
 
@@ -36,7 +35,7 @@ public class TopicDAOImpl extends AbstractJpaDAO<Topic> implements TopicDAO {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List<Topic> findTopicsByRoomNumber(final RoomNumber roomNumber) {
+    public List<Topic> findTopicsByRoomNumber(final String roomNumber) {
         final Query query = this.createNamedQuery("com.techhub.data.entity.Topic.fetchTopicsByRoom");
         query.setParameter("roomNumber", roomNumber);
         return query.getResultList();

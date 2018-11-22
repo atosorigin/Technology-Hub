@@ -3,7 +3,6 @@ package com.techhub.business.service;
 import java.util.List;
 
 import com.techhub.common.dto.TopicDto;
-import com.techhub.common.enums.RoomNumber;
 
 /**
  * Topic Service.
@@ -56,10 +55,10 @@ public interface TopicService {
      * identified by given room number.
      * 
      * @param roomNumber
-     *            <code>net.atos.wl.odc.techhub.common.enums.RoomNumber</code>.
+     *            String.
      * @return List of <code>net.atos.wl.odc.techhub.common.dto.TopicDto</code>.
      */
-    List<TopicDto> findTopicsByRoomNumber(final RoomNumber roomNumber);
+    List<TopicDto> findTopicsByRoomNumber(final String roomNumber);
 
     /**
      * Method to find topics that will be presented within given time slot.

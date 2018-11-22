@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,15 +17,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.techhub.common.enums.RoomNumber;
 
 /**
  * JPA Entity representing the topic information.
  */
 @Entity
 @Table(name = "topic")
-@NamedQueries({
-        @NamedQuery(name = "com.techhub.data.entity.Topic.fetchAllTopics", query = "SELECT t FROM Topic t"),
+@NamedQueries({@NamedQuery(name = "com.techhub.data.entity.Topic.fetchAllTopics", query = "SELECT t FROM Topic t"),
         @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicById", query = "SELECT t FROM Topic t where t.id = :id"),
         @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsByRoom", query = "SELECT t FROM Topic t where t.roomNumber = :roomNumber"),
         @NamedQuery(name = "com.techhub.data.entity.Topic.fetchTopicsBySlot", query = "SELECT t FROM Topic t where t.timeSlot = :timeSlot"),
@@ -53,9 +49,8 @@ public class Topic extends PersistableEntity {
     @Column(name = "time_slot", nullable = true)
     private String timeSlot;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "room_number", nullable = false)
-    private RoomNumber roomNumber;
+    private String roomNumber;
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "topic_presenter_table", joinColumns = {@JoinColumn(name = "topic_id")}, inverseJoinColumns = {
@@ -221,7 +216,7 @@ public class Topic extends PersistableEntity {
      *
      * @return the roomNumber
      */
-    public RoomNumber getRoomNumber() {
+    public String getRoomNumber() {
         return roomNumber;
     }
 
@@ -231,7 +226,7 @@ public class Topic extends PersistableEntity {
      * @param roomNumber
      *            the roomNumber to set
      */
-    public void setRoomNumber(RoomNumber roomNumber) {
+    public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 

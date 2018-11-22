@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Preconditions;
 import com.techhub.business.service.TopicService;
 import com.techhub.common.dto.TopicDto;
-import com.techhub.common.enums.RoomNumber;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -111,7 +110,7 @@ public class TopicController {
      */
     @RequestMapping(value = "/api/topics/room/{roomNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get topics by given room number.")
-    public ResponseEntity<List<TopicDto>> getTopicsByRoomNumber(@PathVariable("roomNumber") final RoomNumber roomNumber) {
+    public ResponseEntity<List<TopicDto>> getTopicsByRoomNumber(@PathVariable("roomNumber") final String roomNumber) {
         log.info("Getting topics by room number " + roomNumber);
         final List<TopicDto> topics = this.topicService.findTopicsByRoomNumber(roomNumber);
         log.info("Total number of topics found " + topics.size());
