@@ -19,8 +19,6 @@ public class RoomDto implements Serializable {
 
     private String name;
 
-    private String floor;
-
     private Integer capacity;
 
     /**
@@ -59,25 +57,6 @@ public class RoomDto implements Serializable {
      */
     public final void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * Getter for floor.
-     *
-     * @return the floor
-     */
-    public final String getFloor() {
-        return floor;
-    }
-
-    /**
-     * Setter for floor.
-     *
-     * @param floor
-     *            the floor to set
-     */
-    public final void setFloor(String floor) {
-        this.floor = floor;
     }
 
     /**

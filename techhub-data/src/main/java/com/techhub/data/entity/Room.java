@@ -20,14 +20,11 @@ public class Room extends PersistableEntity {
      */
     private static final long serialVersionUID = -3280970819560533246L;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, unique = true)
     private String code;
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "floor")
-    private String floor;
 
     @Column(name = "capacity")
     private Integer capacity;
@@ -71,25 +68,6 @@ public class Room extends PersistableEntity {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * Getter for floor.
-     *
-     * @return the floor
-     */
-    public String getFloor() {
-        return floor;
-    }
-
-    /**
-     * Setter for floor.
-     *
-     * @param floor
-     *            the floor to set
-     */
-    public void setFloor(String floor) {
-        this.floor = floor;
     }
 
     /**
